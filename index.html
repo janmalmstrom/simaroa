@@ -358,12 +358,12 @@
   <nav>
     <span class="nav-logo">Simaroa</span>
     <div class="nav-links">
-        <a href="/">Home</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/refund-policy.html">Refunds</a>
-      <a href="mailto:support@simaroa.com">Support</a>
+        <a href="/" data-i18n="nav-home">Home</a>
+      <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
+      <a href="/terms.html" data-i18n="nav-terms">Terms</a>
+      <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
+      <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
+      <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
       <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -374,42 +374,42 @@
       </svg>
     </button>
     <button class="lang-toggle" onclick="toggleLang()">ES</button>
-    <a href="https://app.simaroa.com/signup" class="nav-cta">Start Free Trial</a>
+    <a href="https://app.simaroa.com/signup" class="nav-cta" data-i18n="nav-cta">Start Free Trial</a>
   </nav>
 
   <main class="hero">
     <!-- VERSION A -->
     <div id="version-a" class="version-content">
-      <p class="eyebrow">Calculate Your Lost Revenue in 30 Seconds</p>
-      <h1 class="headline">How Much Revenue Are You Losing Because You Respond Too Slowly?</h1>
-      <p class="subheadline">Most service businesses don't lose jobs because they're bad. They lose because they're late. Simaroa helps you respond faster, close more jobs, and recover the revenue you're silently leaving on the table.</p>
+      <p class="eyebrow" data-i18n="eyebrow-a">Calculate Your Lost Revenue in 30 Seconds</p>
+      <h1 class="headline" data-i18n="headline-a">How Much Revenue Are You Losing Because You Respond Too Slowly?</h1>
+      <p class="subheadline" data-i18n="subheadline-a">Most service businesses don't lose jobs because they're bad. They lose because they're late. Simaroa helps you respond faster, close more jobs, and recover the revenue you're silently leaving on the table.</p>
 
       <div class="calculator">
         <div class="calc-header">
-          <h2>Calculate Your Lost Revenue</h2>
-          <p>Enter your numbers below — no sign-up required</p>
+          <h2 data-i18n="calc-title">Calculate Your Lost Revenue</h2>
+          <p data-i18n="calc-subtitle">Enter your numbers below — no sign-up required</p>
         </div>
 
         <div class="calc-grid">
           <div class="calc-field">
-            <label>Average job value ($)</label>
+            <label data-i18n="label-avgjob">Average job value ($)</label>
             <input type="number" id="avgJobValue" value="500" min="0">
           </div>
           <div class="calc-field">
-            <label>Leads per month</label>
+            <label data-i18n="label-leads">Leads per month</label>
             <input type="number" id="leadsPerMonth" value="20" min="0">
           </div>
           <div class="calc-field">
-            <label>Response time (minutes)</label>
+            <label data-i18n="label-response">Response time (minutes)</label>
             <input type="number" id="responseTime" value="45" min="0">
           </div>
           <div class="calc-field">
-            <label>Close rate (%)</label>
+            <label data-i18n="label-close">Close rate (%)</label>
             <input type="number" id="closeRate" value="15" min="0" max="100">
           </div>
         </div>
 
-        <button class="calc-button" onclick="calculateLoss()">Calculate My Loss</button>
+        <button class="calc-button" onclick="calculateLoss()" data-i18n="btn-calculate">Calculate My Loss</button>
 
         <div class="calc-result" id="result">
           <div class="amount" id="amount"></div>
@@ -418,8 +418,8 @@
       </div>
 
       <div class="cta-section">
-        <a href="https://app.simaroa.com/signup" class="cta-button">Start Free 14-Day Access</a>
-        <p class="cta-note">No credit card required. Full access to all features.</p>
+        <a href="https://app.simaroa.com/signup" class="cta-button" data-i18n="cta-button">Start Free 14-Day Access</a>
+        <p class="cta-note" data-i18n="cta-note">No credit card required. Full access to all features.</p>
       </div>
     </div>
 
@@ -516,14 +516,14 @@
 
   <footer>
     <div class="footer-content">
-      <div class="footer-left">© 2026 Simaroa · Move first. Win more.</div>
+      <div class="footer-left" data-i18n="footer-tagline">© 2026 Simaroa · Move first. Win more.</div>
       <div class="footer-right">
-        <a href="/">Home</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/refund-policy.html">Refunds</a>
-        <a href="mailto:support@simaroa.com">Support</a>
+        <a href="/" data-i18n="nav-home">Home</a>
+        <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
+        <a href="/terms.html" data-i18n="nav-terms">Terms</a>
+        <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
+        <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
+        <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
       </div>
     </div>
   </footer>

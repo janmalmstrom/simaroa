@@ -1,115 +1,81 @@
-// Comprehensive Spanish translations for simaroa.com
-const esContent = {
-  // Index page
-  'index': {
-    '.eyebrow': 'Calcula tus Pérdidas de Ingresos en 30 Segundos',
-    '.headline': '¿Cuántos Ingresos Estás Perdiendo Por Responder Demasiado Lento?',
-    '.subheadline': 'La mayoría de las empresas de servicios no pierden trabajos porque sean malas. Pierden porque llegan tarde. Simaroa te ayuda a responder más rápido, cerrar más trabajos y recuperar los ingresos que silenciosamente dejas en la mesa.',
-    '.calc-header h2': 'Calcula Tus Pérdidas de Ingresos',
-    '.calc-header p': 'Ingresa tus números a continuación — no requiere registro',
-    'label[for="avgJobValue"]': 'Valor promedio del trabajo ($)',
-    'label[for="leadsPerMonth"]': 'Prospectos por mes',
-    'label[for="responseTime"]': 'Tiempo de respuesta (minutos)',
-    'label[for="closeRate"]': 'Tasa de cierre (%)',
-    '.calc-note': 'No se requiere tarjeta de crédito. Acceso completo a todas las funciones.'
+// Language Toggle for Simaroa Marketing
+const translations = {
+  en: {
+    'nav-home': 'Home',
+    'nav-pricing': 'Pricing',
+    'nav-terms': 'Terms',
+    'nav-privacy': 'Privacy',
+    'nav-refunds': 'Refunds',
+    'nav-support': 'Support',
+    'nav-cta': 'Start Free Trial',
+    'lang-btn': 'ES',
+    'footer-tagline': '© 2026 Simaroa · Move first. Win more.',
+    'eyebrow-a': 'Calculate Your Lost Revenue in 30 Seconds',
+    'headline-a': 'How Much Revenue Are You Losing Because You Respond Too Slowly?',
+    'subheadline-a': 'Most service businesses don\\'t lose jobs because they\\'re bad. They lose because they\\'re late. Simaroa helps you respond faster, close more jobs, and recover the revenue you\\'re silently leaving on the table.',
+    'calc-title': 'Calculate Your Lost Revenue',
+    'calc-subtitle': 'Enter your numbers below — no sign-up required',
+    'label-avgjob': 'Average job value ($)',
+    'label-leads': 'Leads per month',
+    'label-response': 'Response time (minutes)',
+    'label-close': 'Close rate (%)',
+    'btn-calculate': 'Calculate My Loss',
+    'cta-note': 'No credit card required. Full access to all features.',
+    'cta-button': 'Start Free 14-Day Access'
   },
-  // Common elements
-  'common': {
-    'a[href="/pricing.html"]': 'Precios',
-    'a[href="/terms.html"]': 'Términos',
-    'a[href="/privacy.html"]': 'Privacidad',
-    'a[href="/refund-policy.html"]': 'Reembolsos',
-    'a[href="mailto:support@simaroa.com"]': 'Soporte',
-    '.nav-cta': 'Prueba Gratuita',
-    '.footer-left': '© 2026 Simaroa · Muéstrate primero. Gana más.'
+  es: {
+    'nav-home': 'Inicio',
+    'nav-pricing': 'Precios',
+    'nav-terms': 'Términos',
+    'nav-privacy': 'Privacidad',
+    'nav-refunds': 'Reembolsos',
+    'nav-support': 'Soporte',
+    'nav-cta': 'Prueba Gratuita',
+    'lang-btn': 'EN',
+    'footer-tagline': '© 2026 Simaroa · Muéstrate primero. Gana más.',
+    'eyebrow-a': 'Calcula tus Pérdidas de Ingresos en 30 Segundos',
+    'headline-a': '¿Cuántos Ingresos Estás Perdiendo Por Responder Demasiado Lento?',
+    'subheadline-a': 'La mayoría de las empresas de servicios no pierden trabajos porque sean malas. Pierden porque llegan tarde. Simaroa te ayuda a responder más rápido, cerrar más trabajos y recuperar los ingresos que silenciosamente dejas en la mesa.',
+    'calc-title': 'Calcula Tus Pérdidas de Ingresos',
+    'calc-subtitle': 'Ingresa tus números a continuación — no requiere registro',
+    'label-avgjob': 'Valor promedio del trabajo ($)',
+    'label-leads': 'Prospectos por mes',
+    'label-response': 'Tiempo de respuesta (minutos)',
+    'label-close': 'Tasa de cierre (%)',
+    'btn-calculate': 'Calcular Mi Pérdida',
+    'cta-note': 'No se requiere tarjeta de crédito. Acceso completo a todas las funciones.',
+    'cta-button': 'Comenzar Acceso Gratuito de 14 Días'
   }
 };
 
-const enContent = {
-  // Index page
-  'index': {
-    '.eyebrow': 'Calculate Your Lost Revenue in 30 Seconds',
-    '.headline': 'How Much Revenue Are You Losing Because You Respond Too Slowly?',
-    '.subheadline': 'Most service businesses don\\'t lose jobs because they\\'re bad. They lose because they\\'re late. Simaroa helps you respond faster, close more jobs, and recover the revenue you\\'re silently leaving on the table.',
-    '.calc-header h2': 'Calculate Your Lost Revenue',
-    '.calc-header p': 'Enter your numbers below — no sign-up required',
-    'label[for="avgJobValue"]': 'Average job value ($)',
-    'label[for="leadsPerMonth"]': 'Leads per month',
-    'label[for="responseTime"]': 'Response time (minutes)',
-    'label[for="closeRate"]': 'Close rate (%)',
-    '.calc-note': 'No credit card required. Full access to all features.'
-  },
-  // Common elements
-  'common': {
-    'a[href="/pricing.html"]': 'Pricing',
-    'a[href="/terms.html"]': 'Terms',
-    'a[href="/privacy.html"]': 'Privacy',
-    'a[href="/refund-policy.html"]': 'Refunds',
-    'a[href="mailto:support@simaroa.com"]': 'Support',
-    '.nav-cta': 'Start Free Trial',
-    '.footer-left': '© 2026 Simaroa · Move first. Win more.'
-  }
-};
-
-function updatePageContent(lang) {
-  const content = lang === 'es' ? esContent : enContent;
-
-  // Update common elements
-  Object.entries(content.common).forEach(([selector, text]) => {
-    document.querySelectorAll(selector).forEach(el => {
-      el.textContent = text;
-    });
+function setLanguage(lang) {
+  const t = translations[lang];
+  const elements = document.querySelectorAll('[data-i18n]');
+  
+  elements.forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) {
+      el.textContent = t[key];
+    }
   });
 
-  // Update index page content
-  if (document.querySelector('.hero')) {
-    const indexContent = content.index;
-    document.querySelectorAll('.eyebrow').forEach((el, i) => {
-      if (i === 0 && typeof indexContent['.eyebrow'] === 'string') el.textContent = indexContent['.eyebrow'];
-    });
-
-    const headline = document.querySelector('.headline');
-    if (headline && typeof indexContent['.headline'] === 'string') headline.textContent = indexContent['.headline'];
-
-    const subheadline = document.querySelector('.subheadline');
-    if (subheadline && typeof indexContent['.subheadline'] === 'string') subheadline.textContent = indexContent['.subheadline'];
-
-    const calcTitle = document.querySelector('.calc-header h2');
-    if (calcTitle) calcTitle.textContent = indexContent['.calc-header h2'];
-
-    const calcSubtitle = document.querySelector('.calc-header p');
-    if (calcSubtitle) calcSubtitle.textContent = indexContent['.calc-header p'];
-
-    // Update calculator labels
-    Object.entries(indexContent).forEach(([selector, text]) => {
-      if (selector.startsWith('label[')) {
-        document.querySelectorAll(selector).forEach(el => el.textContent = text);
-      }
-    });
+  // Update lang toggle button
+  const langBtn = document.querySelector('.lang-toggle');
+  if (langBtn) {
+    langBtn.textContent = t['lang-btn'];
   }
+
+  localStorage.setItem('simaroa_lang', lang);
 }
 
 function toggleLang() {
-  const currentLang = localStorage.getItem('simaroa_lang') || 'en';
-  const newLang = currentLang === 'en' ? 'es' : 'en';
-  localStorage.setItem('simaroa_lang', newLang);
-
-  // Update language button text
-  const langBtn = document.querySelector('.lang-toggle');
-  if (langBtn) {
-    langBtn.textContent = newLang === 'en' ? 'ES' : 'EN';
-  }
-
-  // Update page content
-  updatePageContent(newLang);
+  const current = localStorage.getItem('simaroa_lang') || 'en';
+  const newLang = current === 'en' ? 'es' : 'en';
+  setLanguage(newLang);
 }
 
-// Initialize language on page load
+// Initialize
 (function() {
   const savedLang = localStorage.getItem('simaroa_lang') || 'en';
-  const langBtn = document.querySelector('.lang-toggle');
-  if (langBtn) {
-    langBtn.textContent = savedLang === 'en' ? 'ES' : 'EN';
-  }
-  updatePageContent(savedLang);
+  setLanguage(savedLang);
 })();
