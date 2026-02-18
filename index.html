@@ -947,12 +947,37 @@
     // ========== A/B TESTING - RUN IMMEDIATELY ==========
     // Must run before any other initialization
     (function() {
-      const versions = ['A', 'B'];
-      let version = sessionStorage.getItem('simaroa_ab_version');
+      // Check URL parameter for forcing version
+      const urlParams = new URLSearchParams(window.location.search);
+      const forceVersion = urlParams.get('ab');
+      const resetAB = urlParams.get('reset_ab');
 
-      if (!version) {
-        version = versions[Math.floor(Math.random() * versions.length)];
-        sessionStorage.setItem('simaroa_ab_version', version);
+      // If reset_ab=true, clear the stored version
+      if (resetAB === 'true') {
+        sessionStorage.removeItem('simaroa_ab_version');
+        console.log('A/B Test: Reset - clearing stored version');
+        // Redirect to clean URL
+        window.location.href = window.location.pathname;
+        return;
+      }
+
+      const versions = ['A', 'B'];
+      let version;
+
+      // Use forced version from URL if provided
+      if (forceVersion && (forceVersion === 'A' || forceVersion === 'B')) {
+        version = forceVersion;
+        console.log('A/B Test: Forced to Version', version);
+      } else {
+        // Get stored version or generate new one
+        version = sessionStorage.getItem('simaroa_ab_version');
+        if (!version) {
+          version = versions[Math.floor(Math.random() * versions.length)];
+          sessionStorage.setItem('simaroa_ab_version', version);
+          console.log('A/B Test: NEW selection - Version', version, '(stored in sessionStorage)');
+        } else {
+          console.log('A/B Test: Using stored Version', version, '(clear with ?reset_ab=true)');
+        }
       }
 
       // Show the selected version immediately
@@ -960,10 +985,10 @@
       const selectedVersion = document.getElementById('version-' + version.toLowerCase());
       if (selectedVersion) {
         selectedVersion.classList.add('active');
+        console.log('A/B Test: Showing Version', version, '- element found and activated');
+      } else {
+        console.error('A/B Test ERROR: version-' + version.toLowerCase() + ' element NOT FOUND!');
       }
-
-      // Log which version is showing (for debugging)
-      console.log('Simaroa A/B Test: Showing Version', version);
     })();
 
     // ========== TRANSLATIONS ==========
