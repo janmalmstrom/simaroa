@@ -596,8 +596,8 @@
     .lang-only-es { display: none; }
 
     /* A/B Testing */
-    .version-content { display: none; }
-    .version-content.active { display: block; }
+    .version-content { display: none !important; }
+    .version-content.active { display: block !important; }
   </style>
 </head>
 <body>
@@ -944,6 +944,29 @@
   </footer>
 
   <script>
+    // ========== A/B TESTING - RUN IMMEDIATELY ==========
+    // Must run before any other initialization
+    (function() {
+      const versions = ['A', 'B'];
+      let version = sessionStorage.getItem('simaroa_ab_version');
+
+      if (!version) {
+        version = versions[Math.floor(Math.random() * versions.length)];
+        sessionStorage.setItem('simaroa_ab_version', version);
+      }
+
+      // Show the selected version immediately
+      document.querySelectorAll('.version-content').forEach(el => el.classList.remove('active'));
+      const selectedVersion = document.getElementById('version-' + version.toLowerCase());
+      if (selectedVersion) {
+        selectedVersion.classList.add('active');
+      }
+
+      // Log which version is showing (for debugging)
+      console.log('Simaroa A/B Test: Showing Version', version);
+    })();
+
+    // ========== TRANSLATIONS ==========
     // ========== TRANSLATIONS ==========
     const translations = {
       en: {
@@ -1180,21 +1203,6 @@
       const newLang = current === 'en' ? 'es' : 'en';
       setLanguage(newLang);
     }
-
-    // ========== A/B TESTING ==========
-    // Randomly show version A or B, persist in sessionStorage
-    (function() {
-      const versions = ['A', 'B'];
-      let version = sessionStorage.getItem('simaroa_ab_version');
-
-      if (!version) {
-        version = versions[Math.floor(Math.random() * versions.length)];
-        sessionStorage.setItem('simaroa_ab_version', version);
-      }
-
-      document.querySelectorAll('.version-content').forEach(el => el.classList.remove('active'));
-      document.getElementById('version-' + version.toLowerCase()).classList.add('active');
-    })();
 
     // Initialize language on page load
     (function() {
