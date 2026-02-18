@@ -149,6 +149,23 @@
       box-shadow: 0 6px 8px -1px rgba(34, 197, 94, 0.3);
     }
 
+    .lang-toggle {
+      padding: 0.5rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-muted);
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--text-muted);
+      color: var(--text);
+    }
+
     /* Hero Section */
     .hero {
       padding: 160px 0 100px;
@@ -574,6 +591,9 @@
       .footer-content { flex-direction: column; }
       section { padding: 60px 0; }
     }
+
+    /* Hidden elements for translation */
+    .lang-only-es { display: none; }
   </style>
 </head>
 <body>
@@ -581,12 +601,12 @@
   <nav>
     <span class="nav-logo">Simaroa</span>
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/refund-policy.html">Refunds</a>
-      <a href="mailto:support@simaroa.com">Support</a>
+      <a href="/" data-i18n="nav-home">Home</a>
+      <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
+      <a href="/terms.html" data-i18n="nav-terms">Terms</a>
+      <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
+      <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
+      <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
       <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -596,70 +616,71 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9 9 0 0012.828 0l-4-4zm4-4l4 4m0 0l-4 4m4-4H12" />
       </svg>
     </button>
-    <a href="https://app.simaroa.com/signup" class="nav-cta">Start Free Trial</a>
+    <button class="lang-toggle" onclick="toggleLang()" data-i18n="lang-btn">ES</button>
+    <a href="https://app.simaroa.com/signup" class="nav-cta" data-i18n="nav-cta">Start Free Trial</a>
   </nav>
 
   <!-- 1. HERO SECTION -->
   <section class="hero">
     <div class="container">
-      <h1>Stop Losing Jobs to Faster Competitors.</h1>
-      <p class="subheadline">
+      <h1 data-i18n="hero-headline">Stop Losing Jobs to Faster Competitors.</h1>
+      <p class="subheadline" data-i18n="hero-subheadline">
         If you don't respond within minutes, you're already second.
         Simaroa helps service businesses move first — close faster — and recover the revenue they're silently losing every month.
       </p>
       <div class="cta-group">
-        <a href="https://app.simaroa.com/signup" class="btn-primary">Start Free 14-Day Trial</a>
-        <a href="#calculator" class="btn-secondary">Calculate My Lost Revenue</a>
+        <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="hero-cta-primary">Start Free 14-Day Trial</a>
+        <a href="#calculator" class="btn-secondary" data-i18n="hero-cta-secondary">Calculate My Lost Revenue</a>
       </div>
-      <p class="trust-line">Private beta. Founding pricing available for early members.</p>
+      <p class="trust-line" data-i18n="hero-trust">Private beta. Founding pricing available for early members.</p>
     </div>
   </section>
 
   <!-- 2. PROBLEM SECTION -->
   <section class="problem-section">
     <div class="container">
-      <h2 class="section-title">Speed Wins Jobs. Delay Kills Deals.</h2>
+      <h2 class="section-title" data-i18n="problem-title">Speed Wins Jobs. Delay Kills Deals.</h2>
       <div class="problem-content">
-        <p>Most service businesses think they lose jobs because of price.</p>
-        <p><strong>They don't.</strong></p>
-        <p>They lose because someone else replied first.</p>
-        <p>Today's customers contact 3–5 companies at the same time.<br>
+        <p data-i18n="problem-p1">Most service businesses think they lose jobs because of price.</p>
+        <p><strong data-i18n="problem-p2">They don't.</strong></p>
+        <p data-i18n="problem-p3">They lose because someone else replied first.</p>
+        <p data-i18n="problem-p4">Today's customers contact 3–5 companies at the same time.<br>
         The first serious response usually wins the job.</p>
-        <p>Every extra minute reduces your close probability.</p>
-        <p>And most businesses don't even realize how much that delay is costing them.</p>
+        <p data-i18n="problem-p5">Every extra minute reduces your close probability.</p>
+        <p data-i18n="problem-p6">And most businesses don't even realize how much that delay is costing them.</p>
       </div>
     </div>
   </section>
 
-  <!-- 3. CALCULATOR SECTION (PRESERVED LOGIC) -->
+  <!-- 3. CALCULATOR SECTION -->
   <section class="calculator-section" id="calculator">
     <div class="container">
       <div class="calculator-header">
-        <h2>Calculate Your Lost Revenue in 30 Seconds</h2>
-        <p>Enter your real numbers below. No sign-up required.</p>
+        <h2 data-i18n="calc-title">Calculate Your Lost Revenue in 30 Seconds</h2>
+        <p data-i18n="calc-subtitle">Enter your real numbers below. No sign-up required.</p>
       </div>
 
       <div class="calculator">
         <div class="calc-grid">
           <div class="calc-field">
-            <label>Average job value ($)</label>
+            <label data-i18n="calc-label-job">Average job value ($)</label>
             <input type="number" id="avgJobValue" value="500" min="0">
           </div>
           <div class="calc-field">
-            <label>Leads per month</label>
+            <label data-i18n="calc-label-leads">Leads per month</label>
             <input type="number" id="leadsPerMonth" value="20" min="0">
           </div>
           <div class="calc-field">
-            <label>Average response time (minutes)</label>
+            <label data-i18n="calc-label-response">Average response time (minutes)</label>
             <input type="number" id="responseTime" value="45" min="0">
           </div>
           <div class="calc-field">
-            <label>Your close rate (%)</label>
+            <label data-i18n="calc-label-close">Your close rate (%)</label>
             <input type="number" id="closeRate" value="15" min="0" max="100">
           </div>
         </div>
 
-        <button class="calc-button" onclick="calculateLoss()">Calculate My Revenue Leak</button>
+        <button class="calc-button" onclick="calculateLoss()" data-i18n="calc-button">Calculate My Revenue Leak</button>
 
         <div class="calc-result" id="result">
           <div class="amount-loss" id="amount-loss"></div>
@@ -669,8 +690,8 @@
         </div>
 
         <div class="calc-cta" id="calc-cta" style="display: none;">
-          <a href="https://app.simaroa.com/signup" class="btn-primary">Recover This Revenue — Start Free Trial</a>
-          <p class="calc-note">No credit card required. See impact within days.</p>
+          <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="calc-cta">Recover This Revenue — Start Free Trial</a>
+          <p class="calc-note" data-i18n="calc-note">No credit card required. See impact within days.</p>
         </div>
       </div>
     </div>
@@ -679,22 +700,22 @@
   <!-- 4. SOLUTION SECTION -->
   <section class="solution-section">
     <div class="container">
-      <h2 class="section-title">Here's How Simaroa Helps You Win Faster</h2>
+      <h2 class="section-title" data-i18n="solution-title">Here's How Simaroa Helps You Win Faster</h2>
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-icon">⚡</div>
-          <h3>Instant Lead Visibility</h3>
-          <p>See every incoming opportunity the moment it arrives.</p>
+          <h3 data-i18n="benefit1-title">Instant Lead Visibility</h3>
+          <p data-i18n="benefit1-desc">See every incoming opportunity the moment it arrives.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">📩</div>
-          <h3>Faster Quote Workflows</h3>
-          <p>Reduce internal delays and respond in minutes — not hours.</p>
+          <h3 data-i18n="benefit2-title">Faster Quote Workflows</h3>
+          <p data-i18n="benefit2-desc">Reduce internal delays and respond in minutes — not hours.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">📊</div>
-          <h3>Revenue Performance Tracking</h3>
-          <p>Track response speed and revenue impact in real time.</p>
+          <h3 data-i18n="benefit3-title">Revenue Performance Tracking</h3>
+          <p data-i18n="benefit3-desc">Track response speed and revenue impact in real time.</p>
         </div>
       </div>
     </div>
@@ -703,15 +724,15 @@
   <!-- 5. MECHANISM SECTION -->
   <section class="mechanism-section">
     <div class="container">
-      <h2 class="section-title">This Isn't About Software. It's About Speed.</h2>
+      <h2 class="section-title" data-i18n="mechanism-title">This Isn't About Software. It's About Speed.</h2>
       <div class="mechanism-content">
-        <p>Simaroa is built around one principle:</p>
-        <div class="mechanism-quote">The fastest serious responder wins.</div>
-        <p>Instead of adding complexity, Simaroa removes friction.</p>
-        <p>No heavy CRM.<br>
+        <p data-i18n="mechanism-p1">Simaroa is built around one principle:</p>
+        <div class="mechanism-quote" data-i18n="mechanism-quote">The fastest serious responder wins.</div>
+        <p data-i18n="mechanism-p2">Instead of adding complexity, Simaroa removes friction.</p>
+        <p data-i18n="mechanism-p3">No heavy CRM.<br>
         No complicated setup.<br>
         No learning curve.</p>
-        <p>Just operational speed that increases close rates and protects your revenue.</p>
+        <p data-i18n="mechanism-p4">Just operational speed that increases close rates and protects your revenue.</p>
       </div>
     </div>
   </section>
@@ -719,30 +740,30 @@
   <!-- 6. FAQ SECTION -->
   <section class="faq-section">
     <div class="container">
-      <h2 class="section-title">Common Questions</h2>
+      <h2 class="section-title" data-i18n="faq-title">Common Questions</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">Do I need to replace my current tools?</button>
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq1-q">Do I need to replace my current tools?</button>
           <div class="faq-answer">
-            <p>No. Simaroa works alongside your existing systems.</p>
+            <p data-i18n="faq1-a">No. Simaroa works alongside your existing systems.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">Is setup complicated?</button>
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq2-q">Is setup complicated?</button>
           <div class="faq-answer">
-            <p>No. Most businesses are up and running in less than an hour.</p>
+            <p data-i18n="faq2-a">No. Most businesses are up and running in less than an hour.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">Is this only for large companies?</button>
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq3-q">Is this only for large companies?</button>
           <div class="faq-answer">
-            <p>No. It's built for small and mid-sized service businesses.</p>
+            <p data-i18n="faq3-a">No. It's built for small and mid-sized service businesses.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">Why 14 days?</button>
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq4-q">Why 14 days?</button>
           <div class="faq-answer">
-            <p>Because response improvements are visible within days.</p>
+            <p data-i18n="faq4-a">Because response improvements are visible within days.</p>
           </div>
         </div>
       </div>
@@ -752,10 +773,10 @@
   <!-- 7. FINAL CTA SECTION -->
   <section class="final-cta-section">
     <div class="container">
-      <h2>Move First. Win More.</h2>
-      <p>Every minute you delay is revenue someone else collects.</p>
-      <a href="https://app.simaroa.com/signup" class="btn-primary">Start My 14-Day Access</a>
-      <p class="reassurance">No long-term contracts. Cancel anytime.</p>
+      <h2 data-i18n="final-cta-headline">Move First. Win More.</h2>
+      <p data-i18n="final-cta-sub">Every minute you delay is revenue someone else collects.</p>
+      <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="final-cta-button">Start My 14-Day Access</a>
+      <p class="reassurance" data-i18n="final-cta-reassurance">No long-term contracts. Cancel anytime.</p>
     </div>
   </section>
 
@@ -765,15 +786,15 @@
       <div class="footer-content">
         <div class="footer-brand">
           <h4>Simaroa</h4>
-          <p>Move first. Win more.</p>
+          <p data-i18n="footer-tagline">Move first. Win more.</p>
         </div>
         <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="/pricing.html">Pricing</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/refund-policy.html">Refunds</a>
-          <a href="mailto:support@simaroa.com">Support</a>
+          <a href="/" data-i18n="nav-home">Home</a>
+          <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
+          <a href="/terms.html" data-i18n="nav-terms">Terms</a>
+          <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
+          <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
+          <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -783,6 +804,159 @@
   </footer>
 
   <script>
+    // ========== TRANSLATIONS ==========
+    const translations = {
+      en: {
+        'nav-home': 'Home',
+        'nav-pricing': 'Pricing',
+        'nav-terms': 'Terms',
+        'nav-privacy': 'Privacy',
+        'nav-refunds': 'Refunds',
+        'nav-support': 'Support',
+        'nav-cta': 'Start Free Trial',
+        'lang-btn': 'ES',
+        'hero-headline': 'Stop Losing Jobs to Faster Competitors.',
+        'hero-subheadline': "If you don't respond within minutes, you're already second. Simaroa helps service businesses move first — close faster — and recover the revenue they're silently losing every month.",
+        'hero-cta-primary': 'Start Free 14-Day Trial',
+        'hero-cta-secondary': 'Calculate My Lost Revenue',
+        'hero-trust': 'Private beta. Founding pricing available for early members.',
+        'problem-title': 'Speed Wins Jobs. Delay Kills Deals.',
+        'problem-p1': 'Most service businesses think they lose jobs because of price.',
+        'problem-p2': "They don't.",
+        'problem-p3': 'They lose because someone else replied first.',
+        'problem-p4': "Today's customers contact 3–5 companies at the same time. The first serious response usually wins the job.",
+        'problem-p5': 'Every extra minute reduces your close probability.',
+        'problem-p6': "And most businesses don't even realize how much that delay is costing them.",
+        'calc-title': 'Calculate Your Lost Revenue in 30 Seconds',
+        'calc-subtitle': 'Enter your real numbers below. No sign-up required.',
+        'calc-label-job': 'Average job value ($)',
+        'calc-label-leads': 'Leads per month',
+        'calc-label-response': 'Average response time (minutes)',
+        'calc-label-close': 'Your close rate (%)',
+        'calc-button': 'Calculate My Revenue Leak',
+        'calc-cta': 'Recover This Revenue — Start Free Trial',
+        'calc-note': 'No credit card required. See impact within days.',
+        'solution-title': "Here's How Simaroa Helps You Win Faster",
+        'benefit1-title': 'Instant Lead Visibility',
+        'benefit1-desc': 'See every incoming opportunity the moment it arrives.',
+        'benefit2-title': 'Faster Quote Workflows',
+        'benefit2-desc': 'Reduce internal delays and respond in minutes — not hours.',
+        'benefit3-title': 'Revenue Performance Tracking',
+        'benefit3-desc': 'Track response speed and revenue impact in real time.',
+        'mechanism-title': "This Isn't About Software. It's About Speed.",
+        'mechanism-p1': 'Simaroa is built around one principle:',
+        'mechanism-quote': 'The fastest serious responder wins.',
+        'mechanism-p2': 'Instead of adding complexity, Simaroa removes friction.',
+        'mechanism-p3': 'No heavy CRM. No complicated setup. No learning curve.',
+        'mechanism-p4': 'Just operational speed that increases close rates and protects your revenue.',
+        'faq-title': 'Common Questions',
+        'faq1-q': 'Do I need to replace my current tools?',
+        'faq1-a': 'No. Simaroa works alongside your existing systems.',
+        'faq2-q': 'Is setup complicated?',
+        'faq2-a': 'No. Most businesses are up and running in less than an hour.',
+        'faq3-q': 'Is this only for large companies?',
+        'faq3-a': "No. It's built for small and mid-sized service businesses.",
+        'faq4-q': 'Why 14 days?',
+        'faq4-a': 'Because response improvements are visible within days.',
+        'final-cta-headline': 'Move First. Win More.',
+        'final-cta-sub': 'Every minute you delay is revenue someone else collects.',
+        'final-cta-button': 'Start My 14-Day Access',
+        'final-cta-reassurance': 'No long-term contracts. Cancel anytime.',
+        'footer-tagline': 'Move first. Win more.'
+      },
+      es: {
+        'nav-home': 'Inicio',
+        'nav-pricing': 'Precios',
+        'nav-terms': 'Términos',
+        'nav-privacy': 'Privacidad',
+        'nav-refunds': 'Reembolsos',
+        'nav-support': 'Soporte',
+        'nav-cta': 'Prueba Gratuita',
+        'lang-btn': 'EN',
+        'hero-headline': 'Deja de Perder Trabajo Ante Competidores Más Rápidos.',
+        'hero-subheadline': 'Si no respondes en minutos, ya quedaste segundo. Simaroa ayuda a las empresas de servicios a actuar primero — cerrar más rápido — y recuperar los ingresos que pierden silenciosamente cada mes.',
+        'hero-cta-primary': 'Prueba Gratis de 14 Días',
+        'hero-cta-secondary': 'Calcular Mis Pérdidas de Ingresos',
+        'hero-trust': 'Beta privada. Precios fundadores disponibles para miembros tempranos.',
+        'problem-title': 'La Velocidad Gana Trabajos. El Retraso Mata Acuerdos.',
+        'problem-p1': 'La mayoría de las empresas de servicios piensan que pierden trabajos por el precio.',
+        'problem-p2': 'No es así.',
+        'problem-p3': 'Pierden porque otro respondió primero.',
+        'problem-p4': "Los clientes de hoy contactan a 3-5 empresas al mismo tiempo. La primera respuesta seria generalmente gana el trabajo.",
+        'problem-p5': 'Cada minuto extra reduce tu probabilidad de cierre.',
+        'problem-p6': 'Y la mayoría de las empresas ni siquiera se dan cuenta de cuánto les está costando ese retraso.',
+        'calc-title': 'Calcula Tus Pérdidas de Ingresos en 30 Segundos',
+        'calc-subtitle': 'Ingresa tus números reales a continuación. No se requiere registro.',
+        'calc-label-job': 'Valor promedio del trabajo ($)',
+        'calc-label-leads': 'Prospectos por mes',
+        'calc-label-response': 'Tiempo de respuesta promedio (minutos)',
+        'calc-label-close': 'Tu tasa de cierre (%)',
+        'calc-button': 'Calcular Mi Fuga de Ingresos',
+        'calc-cta': 'Recupera Este Ingreso — Prueba Gratis',
+        'calc-note': 'No se requiere tarjeta de crédito. Ve el impacto en días.',
+        'solution-title': 'Así Es Como Simaroa Te Ayuda a Ganar Más Rápido',
+        'benefit1-title': 'Visibilidad Instantánea de Prospectos',
+        'benefit1-desc': 'Ve cada oportunidad entrante en el momento en que llega.',
+        'benefit2-title': 'Flujos de Cotización Más Rápidos',
+        'benefit2-desc': 'Reduce los retrasos internos y responde en minutos, no horas.',
+        'benefit3-title': 'Seguimiento del Rendimiento de Ingresos',
+        'benefit3-desc': 'Rastrea la velocidad de respuesta y el impacto en los ingresos en tiempo real.',
+        'mechanism-title': 'Esto No Se Trata de Software. Se Trata de Velocidad.',
+        'mechanism-p1': 'Simaroa se construye en torno a un principio:',
+        'mechanism-quote': 'El primer respondedor serio gana.',
+        'mechanism-p2': 'En lugar de agregar complejidad, Simaroa elimina la fricción.',
+        'mechanism-p3': 'Sin CRM pesado. Sin configuración complicada. Sin curva de aprendizaje.',
+        'mechanism-p4': 'Solo velocidad operacional que aumenta las tasas de cierre y protege tus ingresos.',
+        'faq-title': 'Preguntas Comunes',
+        'faq1-q': '¿Necesito reemplazar mis herramientas actuales?',
+        'faq1-a': 'No. Simaroa funciona junto con tus sistemas existentes.',
+        'faq2-q': '¿Es complicado configurar?',
+        'faq2-a': 'No. La mayoría de las empresas funcionan en menos de una hora.',
+        'faq3-q': '¿Es solo para empresas grandes?',
+        'faq3-a': 'No. Está construido para empresas pequeñas y medianas de servicios.',
+        'faq4-q': '¿Por qué 14 días?',
+        'faq4-a': 'Porque las mejoras de respuesta son visibles en días.',
+        'final-cta-headline': 'Actúa Primero. Gana Más.',
+        'final-cta-sub': 'Cada minuto que retrasas es ingreso que otro recolecta.',
+        'final-cta-button': 'Comenzar Mi Acceso de 14 Días',
+        'final-cta-reassurance': 'Sin contratos a largo plazo. Cancela cuando quieras.',
+        'footer-tagline': 'Actúa primero. Gana más.'
+      }
+    };
+
+    // Language Toggle
+    function setLanguage(lang) {
+      const t = translations[lang];
+      const elements = document.querySelectorAll('[data-i18n]');
+
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          el.textContent = t[key];
+        }
+      });
+
+      // Update lang toggle button
+      const langBtn = document.querySelector('.lang-toggle');
+      if (langBtn) {
+        langBtn.textContent = t['lang-btn'];
+      }
+
+      localStorage.setItem('simaroa_lang', lang);
+    }
+
+    function toggleLang() {
+      const current = localStorage.getItem('simaroa_lang') || 'en';
+      const newLang = current === 'en' ? 'es' : 'en';
+      setLanguage(newLang);
+    }
+
+    // Initialize language on page load
+    (function() {
+      const savedLang = localStorage.getItem('simaroa_lang') || 'en';
+      setLanguage(savedLang);
+    })();
+
     // Theme Toggle
     function toggleTheme() {
       const html = document.documentElement;
