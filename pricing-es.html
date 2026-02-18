@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Simaroa</title>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F5F5;
+      --border: #e5e7eb;
+      --border-light: #f3f4f6;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #111827;
+      --accent-text: #ffffff;
+      --card-bg: #f9fafb;
+      --card-border: #e5e7eb;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0a0a0a;
+      --border: #1f1f1f;
+      --border-light: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #888888;
+      --accent: #ffffff;
+      --accent-text: #0a0a0a;
+      --card-bg: #2a2a2a;
+      --card-border: #1f1f1f;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+      background: var(--bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-right: 1rem;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      color: var(--muted);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.9; }
+
+    .lang-toggle {
+      padding: 0.4rem 0.8rem;
+      background: var(--calc-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--muted);
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    main {
+      padding: 8rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .pricing-card.popular {
+      border-color: var(--accent);
+      border-width: 2px;
+      position: relative;
+    }
+
+    .pricing-card.popular::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .trial-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .plan-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .plan-quotes {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .plan-features li {
+      color: var(--muted);
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .plan-features li::before {
+      content: '✓';
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .plan-cta {
+      width: 100%;
+      padding: 0.875rem 1.5rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .plan-cta.primary {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .plan-cta.primary:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    .plan-cta.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .plan-cta.secondary:hover {
+      background: var(--border);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-right a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      main { padding: 6rem 1.25rem 2rem; }
+      .pricing-header h1 { font-size: 1.75rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Simaroa</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/refund-policy.html">Refunds</a>
+      <a href="mailto:support@simaroa.com">Support</a>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="https://app.simaroa.com/signup" class="nav-cta">Start Free Trial</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="pricing-header">
+      <h1>Simple, Transparent Pricing</h1>
+      <p>Start with a 14-day free trial. No credit card required.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Trial -->
+      <div class="pricing-card">
+        <span class="trial-badge">14 Days Free</span>
+        <h3 class="plan-name">Trial</h3>
+        <div class="plan-price">$0<span>/month</span></div>
+        <p class="plan-quotes">50 quotes/month</p>
+        <ul class="plan-features">
+          <li>Email notifications</li>
+          <li>Basic templates</li>
+          <li>Basic reporting</li>
+          <li>Email support</li>
+        </ul>
+        <button class="plan-cta primary" onclick="window.location.href='https://app.simaroa.com/signup'">Start Free Trial</button>
+      </div>
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <h3 class="plan-name">Starter</h3>
+        <div class="plan-price">$99<span>/month</span></div>
+        <p class="plan-quotes">50 quotes/month</p>
+        <ul class="plan-features">
+          <li>Email notifications</li>
+          <li>Basic templates</li>
+          <li>Basic reporting</li>
+          <li>Email support</li>
+        </ul>
+        <button class="plan-cta secondary" onclick="window.location.href='https://app.simaroa.com/signup'">Get Started</button>
+      </div>
+
+      <!-- Professional -->
+      <div class="pricing-card popular">
+        <h3 class="plan-name">Professional</h3>
+        <div class="plan-price">$199<span>/month</span></div>
+        <p class="plan-quotes">200 quotes/month</p>
+        <ul class="plan-features">
+          <li>Email + SMS notifications</li>
+          <li>Advanced templates</li>
+          <li>Advanced reporting</li>
+          <li>Priority support</li>
+          <li>Custom branding</li>
+          <li>API access</li>
+          <li>SLA guarantee</li>
+        </ul>
+        <button class="plan-cta primary" onclick="window.location.href='https://app.simaroa.com/signup'">Get Started</button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <h3 class="plan-name">Enterprise</h3>
+        <div class="plan-price">$399<span>/month</span></div>
+        <p class="plan-quotes">Unlimited quotes</p>
+        <ul class="plan-features">
+          <li>Custom notifications</li>
+          <li>Unlimited templates</li>
+          <li>Custom reporting</li>
+          <li>Dedicated support</li>
+          <li>White-label branding</li>
+          <li>API access</li>
+          <li>SLA guarantee</li>
+          <li>Account manager</li>
+        </ul>
+        <button class="plan-cta secondary" onclick="window.location.href='https://app.simaroa.com/signup'">Contact Sales</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Simaroa</div>
+      <div class="footer-right">
+        <a href="/">Home</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/refund-policy.html">Refunds</a>
+        <a href="mailto:support@simaroa.com">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    // Language Toggle
+    function toggleLang() {
+      const currentLang = localStorage.getItem('lang') || 'en';
+      const newLang = currentLang === 'en' ? 'es' : 'en';
+      setLang(newLang);
+    }
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const sunIcon = document.querySelector('.sun-icon');
+      const moonIcon = document.querySelector('.moon-icon');
+      if (theme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    }
+
+    // Load saved theme or default to dark
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    })();
+  </script>
+
+</body>
+</html>
