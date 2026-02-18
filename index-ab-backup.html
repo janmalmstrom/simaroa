@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simaroa — Stop Losing Jobs to Faster Competitors</title>
+  <meta name="description" content="If you don't respond within minutes, you're already second. Simaroa helps service businesses move first and recover lost revenue." />
+
+  <meta property="og:title" content="Simaroa — Stop Losing Jobs to Faster Competitors" />
+  <meta property="og:description" content="Speed wins jobs. Delay kills deals. Calculate your lost revenue in 30 seconds." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://simaroa.com" />
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Brand Colors - The Quiet Operator Design System */
+    :root {
+      --bg: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --text: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --border-light: #F1F5F9;
+      --revenue: #22C55E;
+      --revenue-dark: #16A34A;
+      --revenue-light: #DCFCE7;
+      --warning: #F59E0B;
+      --navy: #0F172A;
+      --navy-light: #F0F4F8;
+      --calc-bg: #FFFFFF;
+      --calc-border: #E2E8F0;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0F172A;
+      --bg-secondary: #0B1F2A;
+      --text: #FFFFFF;
+      --text-muted: #94A3B8;
+      --border: #1E293B;
+      --border-light: #1E293B;
+      --calc-bg: #1E293B;
+      --calc-border: #334155;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+    input { font-family: inherit; }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      background: var(--bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--text-muted);
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #22C55E, #16A34A);
+      color: white;
+      padding: 0.625rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 8px -1px rgba(34, 197, 94, 0.3);
+    }
+
+    .lang-toggle {
+      padding: 0.5rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-muted);
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--text-muted);
+      color: var(--text);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 100px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p.subheadline {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22C55E, #16A34A);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 8px -1px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #22C55E;
+      color: #22C55E;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #DCFCE7;
+    }
+
+    .trust-line {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Problem Section */
+    .problem-section {
+      background: var(--bg-secondary);
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .problem-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .problem-content p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      background: var(--bg);
+    }
+
+    .calculator-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .calculator-header h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .calculator-header p {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .calculator {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--calc-bg);
+      border: 1px solid var(--calc-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .calc-field label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-field input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.875rem;
+      color: var(--text);
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .calc-field input:focus {
+      outline: none;
+      border-color: #22C55E;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+    }
+
+    .calc-button {
+      width: 100%;
+      background: linear-gradient(135deg, #22C55E, #16A34A);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
+      transition: all 0.2s;
+    }
+
+    .calc-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 8px -1px rgba(34, 197, 94, 0.3);
+    }
+
+    .calc-result {
+      display: none;
+      background: var(--border-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .calc-result.show { display: block; }
+
+    .calc-result .amount-loss {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #F59E0B;
+    }
+
+    .calc-result .amount-recovery {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #22C55E;
+      margin-top: 1rem;
+    }
+
+    .calc-result .label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .calc-cta {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .calc-note {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Solution Section */
+    .solution-section {
+      background: var(--bg-secondary);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .benefit-card {
+      text-align: center;
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit-card p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Mechanism Section */
+    .mechanism-section {
+      background: var(--navy);
+      color: white;
+    }
+
+    .mechanism-section .section-title {
+      color: white;
+    }
+
+    .mechanism-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .mechanism-content p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #CBD5E1;
+    }
+
+    .mechanism-quote {
+      border-left: 4px solid #22C55E;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: var(--bg);
+    }
+
+    .faq-list {
+      max-width: 700px;
+      margin: 3rem auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1.5rem 0;
+      background: none;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #22C55E;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-bottom: 1.5rem;
+    }
+
+    .faq-answer p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Final CTA Section */
+    .final-cta-section {
+      background: var(--bg-secondary);
+      text-align: center;
+    }
+
+    .final-cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .final-cta-section p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .reassurance {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+      background: var(--bg);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-brand h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 140px 0 60px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .footer-content { flex-direction: column; }
+      section { padding: 60px 0; }
+    }
+
+    /* Hidden elements for translation */
+    .lang-only-es { display: none; }
+
+    /* A/B Testing */
+    .version-content { display: none; }
+    .version-content.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Simaroa</span>
+    <div class="nav-links">
+      <a href="/" data-i18n="nav-home">Home</a>
+      <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
+      <a href="/terms.html" data-i18n="nav-terms">Terms</a>
+      <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
+      <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
+      <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h.01M12 21a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9 9 0 0012.828 0l-4-4zm4-4l4 4m0 0l-4 4m4-4H12" />
+      </svg>
+    </button>
+    <button class="lang-toggle" onclick="toggleLang()" data-i18n="lang-btn">ES</button>
+    <a href="https://app.simaroa.com/signup" class="nav-cta" data-i18n="nav-cta">Start Free Trial</a>
+  </nav>
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <h1 data-i18n="hero-headline">Stop Losing Jobs to Faster Competitors.</h1>
+      <p class="subheadline" data-i18n="hero-subheadline">
+        If you don't respond within minutes, you're already second.
+        Simaroa helps service businesses move first — close faster — and recover the revenue they're silently losing every month.
+      </p>
+      <div class="cta-group">
+        <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="hero-cta-primary">Start Free 14-Day Trial</a>
+        <a href="#calculator" class="btn-secondary" data-i18n="hero-cta-secondary">Calculate My Lost Revenue</a>
+      </div>
+      <p class="trust-line" data-i18n="hero-trust">Private beta. Founding pricing available for early members.</p>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEM SECTION -->
+  <section class="problem-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="problem-title">Speed Wins Jobs. Delay Kills Deals.</h2>
+      <div class="problem-content">
+        <p data-i18n="problem-p1">Most service businesses think they lose jobs because of price.</p>
+        <p><strong data-i18n="problem-p2">They don't.</strong></p>
+        <p data-i18n="problem-p3">They lose because someone else replied first.</p>
+        <p data-i18n="problem-p4">Today's customers contact 3–5 companies at the same time.<br>
+        The first serious response usually wins the job.</p>
+        <p data-i18n="problem-p5">Every extra minute reduces your close probability.</p>
+        <p data-i18n="problem-p6">And most businesses don't even realize how much that delay is costing them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CALCULATOR SECTION -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="calculator-header">
+        <h2 data-i18n="calc-title">Calculate Your Lost Revenue in 30 Seconds</h2>
+        <p data-i18n="calc-subtitle">Enter your real numbers below. No sign-up required.</p>
+      </div>
+
+      <div class="calculator">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label data-i18n="calc-label-job">Average job value ($)</label>
+            <input type="number" id="avgJobValue" value="500" min="0">
+          </div>
+          <div class="calc-field">
+            <label data-i18n="calc-label-leads">Leads per month</label>
+            <input type="number" id="leadsPerMonth" value="20" min="0">
+          </div>
+          <div class="calc-field">
+            <label data-i18n="calc-label-response">Average response time (minutes)</label>
+            <input type="number" id="responseTime" value="45" min="0">
+          </div>
+          <div class="calc-field">
+            <label data-i18n="calc-label-close">Your close rate (%)</label>
+            <input type="number" id="closeRate" value="15" min="0" max="100">
+          </div>
+        </div>
+
+        <button class="calc-button" onclick="calculateLoss()" data-i18n="calc-button">Calculate My Revenue Leak</button>
+
+        <div class="calc-result" id="result">
+          <div class="amount-loss" id="amount-loss"></div>
+          <div class="label" id="label-loss"></div>
+          <div class="amount-recovery" id="amount-recovery"></div>
+          <div class="label" id="label-recovery"></div>
+        </div>
+
+        <div class="calc-cta" id="calc-cta" style="display: none;">
+          <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="calc-cta">Recover This Revenue — Start Free Trial</a>
+          <p class="calc-note" data-i18n="calc-note">No credit card required. See impact within days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SOLUTION SECTION -->
+  <section class="solution-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="solution-title">Here's How Simaroa Helps You Win Faster</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3 data-i18n="benefit1-title">Instant Lead Visibility</h3>
+          <p data-i18n="benefit1-desc">See every incoming opportunity the moment it arrives.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📩</div>
+          <h3 data-i18n="benefit2-title">Faster Quote Workflows</h3>
+          <p data-i18n="benefit2-desc">Reduce internal delays and respond in minutes — not hours.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📊</div>
+          <h3 data-i18n="benefit3-title">Revenue Performance Tracking</h3>
+          <p data-i18n="benefit3-desc">Track response speed and revenue impact in real time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. MECHANISM SECTION -->
+  <section class="mechanism-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="mechanism-title">This Isn't About Software. It's About Speed.</h2>
+      <div class="mechanism-content">
+        <p data-i18n="mechanism-p1">Simaroa is built around one principle:</p>
+        <div class="mechanism-quote" data-i18n="mechanism-quote">The fastest serious responder wins.</div>
+        <p data-i18n="mechanism-p2">Instead of adding complexity, Simaroa removes friction.</p>
+        <p data-i18n="mechanism-p3">No heavy CRM.<br>
+        No complicated setup.<br>
+        No learning curve.</p>
+        <p data-i18n="mechanism-p4">Just operational speed that increases close rates and protects your revenue.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="faq-title">Common Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq1-q">Do I need to replace my current tools?</button>
+          <div class="faq-answer">
+            <p data-i18n="faq1-a">No. Simaroa works alongside your existing systems.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq2-q">Is setup complicated?</button>
+          <div class="faq-answer">
+            <p data-i18n="faq2-a">No. Most businesses are up and running in less than an hour.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq3-q">Is this only for large companies?</button>
+          <div class="faq-answer">
+            <p data-i18n="faq3-a">No. It's built for small and mid-sized service businesses.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" data-i18n="faq4-q">Why 14 days?</button>
+          <div class="faq-answer">
+            <p data-i18n="faq4-a">Because response improvements are visible within days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FINAL CTA SECTION -->
+  <section class="final-cta-section">
+    <div class="container">
+      <h2 data-i18n="final-cta-headline">Move First. Win More.</h2>
+      <p data-i18n="final-cta-sub">Every minute you delay is revenue someone else collects.</p>
+      <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="final-cta-button">Start My 14-Day Access</a>
+      <p class="reassurance" data-i18n="final-cta-reassurance">No long-term contracts. Cancel anytime.</p>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h4>Simaroa</h4>
+          <p data-i18n="footer-tagline">Move first. Win more.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/" data-i18n="nav-home">Home</a>
+          <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
+          <a href="/terms.html" data-i18n="nav-terms">Terms</a>
+          <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
+          <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
+          <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>support@simaroa.com · © 2026 Simaroa</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========== TRANSLATIONS ==========
+    const translations = {
+      en: {
+        'nav-home': 'Home',
+        'nav-pricing': 'Pricing',
+        'nav-terms': 'Terms',
+        'nav-privacy': 'Privacy',
+        'nav-refunds': 'Refunds',
+        'nav-support': 'Support',
+        'nav-cta': 'Start Free Trial',
+        'lang-btn': 'ES',
+        'hero-headline': 'Stop Losing Jobs to Faster Competitors.',
+        'hero-subheadline': "If you don't respond within minutes, you're already second. Simaroa helps service businesses move first — close faster — and recover the revenue they're silently losing every month.",
+        'hero-cta-primary': 'Start Free 14-Day Trial',
+        'hero-cta-secondary': 'Calculate My Lost Revenue',
+        'hero-trust': 'Private beta. Founding pricing available for early members.',
+        'problem-title': 'Speed Wins Jobs. Delay Kills Deals.',
+        'problem-p1': 'Most service businesses think they lose jobs because of price.',
+        'problem-p2': "They don't.",
+        'problem-p3': 'They lose because someone else replied first.',
+        'problem-p4': "Today's customers contact 3–5 companies at the same time. The first serious response usually wins the job.",
+        'problem-p5': 'Every extra minute reduces your close probability.',
+        'problem-p6': "And most businesses don't even realize how much that delay is costing them.",
+        'calc-title': 'Calculate Your Lost Revenue in 30 Seconds',
+        'calc-subtitle': 'Enter your real numbers below. No sign-up required.',
+        'calc-label-job': 'Average job value ($)',
+        'calc-label-leads': 'Leads per month',
+        'calc-label-response': 'Average response time (minutes)',
+        'calc-label-close': 'Your close rate (%)',
+        'calc-button': 'Calculate My Revenue Leak',
+        'calc-cta': 'Recover This Revenue — Start Free Trial',
+        'calc-note': 'No credit card required. See impact within days.',
+        'calc-loss-month': '/month',
+        'calc-year': '/year',
+        'calc-loss-year': 'Lost revenue = ',
+        'calc-recover-month': 'Recover $',
+        'calc-response-note': "With Simaroa's 5-minute response",
+        'calc-peak': "You're performing at peak!",
+        'solution-title': "Here's How Simaroa Helps You Win Faster",
+        'benefit1-title': 'Instant Lead Visibility',
+        'benefit1-desc': 'See every incoming opportunity the moment it arrives.',
+        'benefit2-title': 'Faster Quote Workflows',
+        'benefit2-desc': 'Reduce internal delays and respond in minutes — not hours.',
+        'benefit3-title': 'Revenue Performance Tracking',
+        'benefit3-desc': 'Track response speed and revenue impact in real time.',
+        'mechanism-title': "This Isn't About Software. It's About Speed.",
+        'mechanism-p1': 'Simaroa is built around one principle:',
+        'mechanism-quote': 'The fastest serious responder wins.',
+        'mechanism-p2': 'Instead of adding complexity, Simaroa removes friction.',
+        'mechanism-p3': 'No heavy CRM. No complicated setup. No learning curve.',
+        'mechanism-p4': 'Just operational speed that increases close rates and protects your revenue.',
+        'faq-title': 'Common Questions',
+        'faq1-q': 'Do I need to replace my current tools?',
+        'faq1-a': 'No. Simaroa works alongside your existing systems.',
+        'faq2-q': 'Is setup complicated?',
+        'faq2-a': 'No. Most businesses are up and running in less than an hour.',
+        'faq3-q': 'Is this only for large companies?',
+        'faq3-a': "No. It's built for small and mid-sized service businesses.",
+        'faq4-q': 'Why 14 days?',
+        'faq4-a': 'Because response improvements are visible within days.',
+        'final-cta-headline': 'Move First. Win More.',
+        'final-cta-sub': 'Every minute you delay is revenue someone else collects.',
+        'final-cta-button': 'Start My 14-Day Access',
+        'final-cta-reassurance': 'No long-term contracts. Cancel anytime.',
+        'footer-tagline': 'Move first. Win more.'
+      },
+      es: {
+        'nav-home': 'Inicio',
+        'nav-pricing': 'Precios',
+        'nav-terms': 'Términos',
+        'nav-privacy': 'Privacidad',
+        'nav-refunds': 'Reembolsos',
+        'nav-support': 'Soporte',
+        'nav-cta': 'Prueba Gratuita',
+        'lang-btn': 'EN',
+        'hero-headline': 'Deja de Perder Trabajo Ante Competidores Más Rápidos.',
+        'hero-subheadline': 'Si no respondes en minutos, ya quedaste segundo. Simaroa ayuda a las empresas de servicios a actuar primero — cerrar más rápido — y recuperar los ingresos que pierden silenciosamente cada mes.',
+        'hero-cta-primary': 'Prueba Gratis de 14 Días',
+        'hero-cta-secondary': 'Calcular Mis Pérdidas de Ingresos',
+        'hero-trust': 'Beta privada. Precios fundadores disponibles para miembros tempranos.',
+        'problem-title': 'La Velocidad Gana Trabajos. El Retraso Mata Acuerdos.',
+        'problem-p1': 'La mayoría de las empresas de servicios piensan que pierden trabajos por el precio.',
+        'problem-p2': 'No es así.',
+        'problem-p3': 'Pierden porque otro respondió primero.',
+        'problem-p4': "Los clientes de hoy contactan a 3-5 empresas al mismo tiempo. La primera respuesta seria generalmente gana el trabajo.",
+        'problem-p5': 'Cada minuto extra reduce tu probabilidad de cierre.',
+        'problem-p6': 'Y la mayoría de las empresas ni siquiera se dan cuenta de cuánto les está costando ese retraso.',
+        'calc-title': 'Calcula Tus Pérdidas de Ingresos en 30 Segundos',
+        'calc-subtitle': 'Ingresa tus números reales a continuación. No se requiere registro.',
+        'calc-label-job': 'Valor promedio del trabajo ($)',
+        'calc-label-leads': 'Prospectos por mes',
+        'calc-label-response': 'Tiempo de respuesta promedio (minutos)',
+        'calc-label-close': 'Tu tasa de cierre (%)',
+        'calc-button': 'Calcular Mi Fuga de Ingresos',
+        'calc-cta': 'Recupera Este Ingreso — Prueba Gratis',
+        'calc-note': 'No se requiere tarjeta de crédito. Ve el impacto en días.',
+        'calc-loss-month': '/mes',
+        'calc-year': '/año',
+        'calc-loss-year': 'Ingresos perdidos = ',
+        'calc-recover-month': 'Recupera $',
+        'calc-response-note': "Con la respuesta de 5 minutos de Simaroa",
+        'calc-peak': '¡Estás funcionando al máximo!',
+        'solution-title': 'Así Es Como Simaroa Te Ayuda a Ganar Más Rápido',
+        'benefit1-title': 'Visibilidad Instantánea de Prospectos',
+        'benefit1-desc': 'Ve cada oportunidad entrante en el momento en que llega.',
+        'benefit2-title': 'Flujos de Cotización Más Rápidos',
+        'benefit2-desc': 'Reduce los retrasos internos y responde en minutos, no horas.',
+        'benefit3-title': 'Seguimiento del Rendimiento de Ingresos',
+        'benefit3-desc': 'Rastrea la velocidad de respuesta y el impacto en los ingresos en tiempo real.',
+        'mechanism-title': 'Esto No Se Trata de Software. Se Trata de Velocidad.',
+        'mechanism-p1': 'Simaroa se construye en torno a un principio:',
+        'mechanism-quote': 'El primer respondedor serio gana.',
+        'mechanism-p2': 'En lugar de agregar complejidad, Simaroa elimina la fricción.',
+        'mechanism-p3': 'Sin CRM pesado. Sin configuración complicada. Sin curva de aprendizaje.',
+        'mechanism-p4': 'Solo velocidad operacional que aumenta las tasas de cierre y protege tus ingresos.',
+        'faq-title': 'Preguntas Comunes',
+        'faq1-q': '¿Necesito reemplazar mis herramientas actuales?',
+        'faq1-a': 'No. Simaroa funciona junto con tus sistemas existentes.',
+        'faq2-q': '¿Es complicado configurar?',
+        'faq2-a': 'No. La mayoría de las empresas funcionan en menos de una hora.',
+        'faq3-q': '¿Es solo para empresas grandes?',
+        'faq3-a': 'No. Está construido para empresas pequeñas y medianas de servicios.',
+        'faq4-q': '¿Por qué 14 días?',
+        'faq4-a': 'Porque las mejoras de respuesta son visibles en días.',
+        'final-cta-headline': 'Actúa Primero. Gana Más.',
+        'final-cta-sub': 'Cada minuto que retrasas es ingreso que otro recolecta.',
+        'final-cta-button': 'Comenzar Mi Acceso de 14 Días',
+        'final-cta-reassurance': 'Sin contratos a largo plazo. Cancela cuando quieras.',
+        'footer-tagline': 'Actúa primero. Gana más.'
+      }
+    };
+
+    // Language Toggle
+    function setLanguage(lang) {
+      const t = translations[lang];
+      const elements = document.querySelectorAll('[data-i18n]');
+
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          el.textContent = t[key];
+        }
+      });
+
+      // Update lang toggle button
+      const langBtn = document.querySelector('.lang-toggle');
+      if (langBtn) {
+        langBtn.textContent = t['lang-btn'];
+      }
+
+      localStorage.setItem('simaroa_lang', lang);
+    }
+
+    function toggleLang() {
+      const current = localStorage.getItem('simaroa_lang') || 'en';
+      const newLang = current === 'en' ? 'es' : 'en';
+      setLanguage(newLang);
+    }
+
+    // Initialize language on page load
+    (function() {
+      const savedLang = localStorage.getItem('simaroa_lang') || 'en';
+      setLanguage(savedLang);
+    })();
+
+    // Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcons(newTheme);
+    }
+
+    function updateThemeIcons(theme) {
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      if (theme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    }
+
+    // Load saved theme or default to light
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcons(savedTheme);
+    })();
+
+    // FAQ Toggle
+    function toggleFaq(button) {
+      const faqItem = button.parentElement;
+      const isActive = faqItem.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Open clicked if wasn't active
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+
+    // ========== CALCULATOR LOGIC - PRESERVED EXACTLY ==========
+    const INDUSTRY_RESPONSE_TARGET = 5;
+    const INDUSTRY_CLOSE_RATE = 0.35;
+
+    function adjustedCloseRate(userResponseMinutes) {
+      if (userResponseMinutes <= 5) return 0.35;
+      const decayFactor = Math.exp(-0.0025 * (userResponseMinutes - 5));
+      return 0.35 * decayFactor;
+    }
+
+    function calculateLoss() {
+      const avgJobValue = parseFloat(document.getElementById('avgJobValue').value) || 0;
+      const leadsPerMonth = parseFloat(document.getElementById('leadsPerMonth').value) || 0;
+      const responseTime = parseFloat(document.getElementById('responseTime').value) || 0;
+      const closeRate = parseFloat(document.getElementById('closeRate').value) || 0;
+
+      const expectedCloseRate = adjustedCloseRate(responseTime);
+      const userCloseRate = closeRate / 100;
+      const currentWonJobs = leadsPerMonth * userCloseRate;
+      const potentialWonJobs = leadsPerMonth * INDUSTRY_CLOSE_RATE;
+      const lostJobs = potentialWonJobs - currentWonJobs;
+      let lostRevenue = lostJobs * avgJobValue;
+
+      if (responseTime > 30 && lostRevenue < avgJobValue) {
+        lostRevenue = avgJobValue;
+      }
+
+      const monthlyLost = Math.round(lostRevenue);
+      const yearlyLost = monthlyLost * 12;
+      const recoveryPotential = Math.round(monthlyLost * 0.7);
+
+      // Get current language translations
+      const currentLang = localStorage.getItem('simaroa_lang') || 'en';
+      const t = translations[currentLang];
+
+      const resultDiv = document.getElementById('result');
+      const amountLossDiv = document.getElementById('amount-loss');
+      const labelLossDiv = document.getElementById('label-loss');
+      const amountRecoveryDiv = document.getElementById('amount-recovery');
+      const labelRecoveryDiv = document.getElementById('label-recovery');
+      const calcCta = document.getElementById('calc-cta');
+
+      if (lostRevenue <= 0) {
+        amountLossDiv.textContent = t['calc-peak'];
+        labelLossDiv.textContent = "";
+        amountRecoveryDiv.style.display = 'none';
+        labelRecoveryDiv.style.display = 'none';
+        calcCta.style.display = 'none';
+      } else {
+        amountLossDiv.textContent = `$${monthlyLost.toLocaleString()}${t['calc-loss-month']}`;
+        labelLossDiv.textContent = `${t['calc-loss_year']}$${yearlyLost.toLocaleString()}${t['calc-year']}`;
+        amountRecoveryDiv.textContent = `${t['calc-recover-month']}${recoveryPotential.toLocaleString()}${t['calc-loss-month']}`;
+        labelRecoveryDiv.textContent = t['calc-response-note'];
+        amountRecoveryDiv.style.display = 'block';
+        labelRecoveryDiv.style.display = 'block';
+        calcCta.style.display = 'block';
+      }
+
+      resultDiv.classList.add("show");
+    }
+  </script>
+
+</body>
+</html>
