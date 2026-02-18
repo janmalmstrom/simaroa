@@ -3,46 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simaroa — Recover the revenue you lose to slow follow-up</title>
-  <meta name="description" content="How much revenue are you losing because you respond too slowly? Calculate in 30 seconds." />
+  <title>Simaroa — Stop Losing Jobs to Faster Competitors</title>
+  <meta name="description" content="If you don't respond within minutes, you're already second. Simaroa helps service businesses move first and recover lost revenue." />
 
-  <meta property="og:title" content="Simaroa — Calculate Your Lost Revenue" />
-  <meta property="og:description" content="Most service businesses don't lose jobs because they're bad. They lose because they're late." />
+  <meta property="og:title" content="Simaroa — Stop Losing Jobs to Faster Competitors" />
+  <meta property="og:description" content="Speed wins jobs. Delay kills deals. Calculate your lost revenue in 30 seconds." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://simaroa.com" />
 
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     /* Brand Colors - The Quiet Operator Design System */
     :root {
-      /* Light Theme */
       --bg: #FFFFFF;
       --bg-secondary: #F8FAFC;
       --text: #0F172A;
       --text-muted: #64748B;
       --border: #E2E8F0;
       --border-light: #F1F5F9;
-
-      /* Brand Colors */
       --revenue: #22C55E;
       --revenue-dark: #16A34A;
       --revenue-light: #DCFCE7;
       --warning: #F59E0B;
       --navy: #0F172A;
       --navy-light: #F0F4F8;
-
-      /* Calculator */
       --calc-bg: #FFFFFF;
       --calc-border: #E2E8F0;
     }
 
-    /* Dark Theme */
     [data-theme="dark"] {
       --bg: #0F172A;
       --bg-secondary: #0B1F2A;
@@ -61,15 +55,23 @@
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; border: none; outline: none; }
     input { font-family: inherit; }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 80px 0;
+    }
 
     /* Navigation */
     nav {
@@ -147,69 +149,44 @@
       box-shadow: 0 6px 8px -1px rgba(34, 197, 94, 0.3);
     }
 
-    .lang-toggle {
-      padding: 0.5rem 1rem;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: var(--text-muted);
-    }
-
-    .lang-toggle:hover {
-      border-color: var(--text-muted);
-      color: var(--text);
-    }
-
-    /* Hero Section - Dark Navy Authority */
+    /* Hero Section */
     .hero {
-      padding: 8rem 2rem 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
+      padding: 160px 0 100px;
+      text-align: center;
     }
 
-    .eyebrow {
-      font-size: 0.875rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #22C55E;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    .headline {
-      font-size: clamp(2.25rem, 5vw, 3.5rem);
-      font-weight: 700;
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
       line-height: 1.1;
       color: var(--text);
       margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
 
-    .subheadline {
-      font-size: 1.125rem;
+    .hero p.subheadline {
+      font-size: 1.25rem;
       color: var(--text-muted);
-      max-width: 600px;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
       line-height: 1.7;
-      margin-bottom: 2.5rem;
     }
 
     .cta-group {
       display: flex;
       gap: 1rem;
+      justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 1.5rem;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #22C55E, #16A34A);
       color: white;
-      padding: 0.875rem 2rem;
+      padding: 1rem 2rem;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.0625rem;
       box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
       transition: all 0.2s;
     }
@@ -223,10 +200,10 @@
       background: transparent;
       border: 2px solid #22C55E;
       color: #22C55E;
-      padding: 0.875rem 2rem;
+      padding: 1rem 2rem;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.0625rem;
       transition: all 0.2s;
     }
 
@@ -234,15 +211,39 @@
       background: #DCFCE7;
     }
 
-    /* Calculator Section */
-    .calculator-section {
-      background: var(--bg-secondary);
-      padding: 5rem 2rem;
+    .trust-line {
+      font-size: 0.875rem;
+      color: var(--text-muted);
     }
 
-    .calculator-container {
+    /* Problem Section */
+    .problem-section {
+      background: var(--bg-secondary);
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .problem-content {
       max-width: 700px;
       margin: 0 auto;
+    }
+
+    .problem-content p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      background: var(--bg);
     }
 
     .calculator-header {
@@ -251,7 +252,7 @@
     }
 
     .calculator-header h2 {
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 0.5rem;
@@ -263,6 +264,8 @@
     }
 
     .calculator {
+      max-width: 600px;
+      margin: 0 auto;
       background: var(--calc-bg);
       border: 1px solid var(--calc-border);
       border-radius: 16px;
@@ -342,6 +345,7 @@
       font-size: 2.5rem;
       font-weight: 700;
       color: #22C55E;
+      margin-top: 1rem;
     }
 
     .calc-result .label {
@@ -355,59 +359,221 @@
       text-align: center;
     }
 
+    .calc-note {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Solution Section */
+    .solution-section {
+      background: var(--bg-secondary);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .benefit-card {
+      text-align: center;
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit-card p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Mechanism Section */
+    .mechanism-section {
+      background: var(--navy);
+      color: white;
+    }
+
+    .mechanism-section .section-title {
+      color: white;
+    }
+
+    .mechanism-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .mechanism-content p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #CBD5E1;
+    }
+
+    .mechanism-quote {
+      border-left: 4px solid #22C55E;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: var(--bg);
+    }
+
+    .faq-list {
+      max-width: 700px;
+      margin: 3rem auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1.5rem 0;
+      background: none;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #22C55E;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-bottom: 1.5rem;
+    }
+
+    .faq-answer p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Final CTA Section */
+    .final-cta-section {
+      background: var(--bg-secondary);
+      text-align: center;
+    }
+
+    .final-cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .final-cta-section p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .reassurance {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem;
-      margin-top: auto;
+      padding: 3rem 0;
       background: var(--bg);
     }
 
     .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 2rem;
     }
 
-    .footer-left {
+    .footer-brand h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .footer-brand p {
       font-size: 0.875rem;
       color: var(--text-muted);
+      margin-top: 0.25rem;
     }
 
-    .footer-right {
+    .footer-links {
       display: flex;
       gap: 1.5rem;
       font-size: 0.875rem;
     }
 
-    .footer-right a {
+    .footer-links a {
       color: var(--text-muted);
       transition: color 0.2s;
     }
 
-    .footer-right a:hover { color: var(--text); }
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
 
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       .nav-links { display: none; }
-      .hero { padding: 7rem 1.25rem 2rem; text-align: center; }
-      .cta-group { justify-content: center; }
+      .hero { padding: 140px 0 60px; }
+      .benefits-grid { grid-template-columns: 1fr; }
       .calc-grid { grid-template-columns: 1fr; }
-      .calculator { padding: 1.5rem; }
-      .footer-content { flex-direction: column; align-items: center; }
+      .footer-content { flex-direction: column; }
+      section { padding: 60px 0; }
     }
-
-    .version-content { display: none; }
-    .version-content.active { display: block; }
   </style>
 </head>
 <body>
@@ -415,12 +581,12 @@
   <nav>
     <span class="nav-logo">Simaroa</span>
     <div class="nav-links">
-        <a href="/" data-i18n="nav-home">Home</a>
-      <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
-      <a href="/terms.html" data-i18n="nav-terms">Terms</a>
-      <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
-      <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
-      <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
+      <a href="/">Home</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/refund-policy.html">Refunds</a>
+      <a href="mailto:support@simaroa.com">Support</a>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
       <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -430,121 +596,206 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9 9 0 0012.828 0l-4-4zm4-4l4 4m0 0l-4 4m4-4H12" />
       </svg>
     </button>
-    <button class="lang-toggle" onclick="toggleLang()">ES</button>
-    <a href="https://app.simaroa.com/signup" class="nav-cta" data-i18n="nav-cta">Start Free Trial</a>
+    <a href="https://app.simaroa.com/signup" class="nav-cta">Start Free Trial</a>
   </nav>
 
-  <main class="hero">
-    <!-- VERSION A -->
-    <div id="version-a" class="version-content">
-      <p class="eyebrow" data-i18n="eyebrow-a">Calculate Your Lost Revenue in 30 Seconds</p>
-      <h1 class="headline" data-i18n="headline-a">How Much Revenue Are You Losing Because You Respond Too Slowly?</h1>
-      <p class="subheadline" data-i18n="subheadline-a">Most service businesses don't lose jobs because they're bad. They lose because they're late. Simaroa helps you respond faster, close more jobs, and recover the revenue you're silently leaving on the table.</p>
-
+  <!-- 1. HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <h1>Stop Losing Jobs to Faster Competitors.</h1>
+      <p class="subheadline">
+        If you don't respond within minutes, you're already second.
+        Simaroa helps service businesses move first — close faster — and recover the revenue they're silently losing every month.
+      </p>
       <div class="cta-group">
-        <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="cta-button-a">Start Free 14-Day Access</a>
+        <a href="https://app.simaroa.com/signup" class="btn-primary">Start Free 14-Day Trial</a>
+        <a href="#calculator" class="btn-secondary">Calculate My Lost Revenue</a>
+      </div>
+      <p class="trust-line">Private beta. Founding pricing available for early members.</p>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEM SECTION -->
+  <section class="problem-section">
+    <div class="container">
+      <h2 class="section-title">Speed Wins Jobs. Delay Kills Deals.</h2>
+      <div class="problem-content">
+        <p>Most service businesses think they lose jobs because of price.</p>
+        <p><strong>They don't.</strong></p>
+        <p>They lose because someone else replied first.</p>
+        <p>Today's customers contact 3–5 companies at the same time.<br>
+        The first serious response usually wins the job.</p>
+        <p>Every extra minute reduces your close probability.</p>
+        <p>And most businesses don't even realize how much that delay is costing them.</p>
       </div>
     </div>
+  </section>
 
-    <!-- VERSION B -->
-    <div id="version-b" class="version-content">
-      <p class="eyebrow" data-i18n="eyebrow-b">What Is Slow Follow-Up Costing You?</p>
-      <h1 class="headline" data-i18n="headline-b">Service Businesses Don't Need More Leads. They Need Faster Systems.</h1>
-      <p class="subheadline" data-i18n="subheadline-b">Simaroa improves how quickly you respond, quote, and follow up — without adding complexity.</p>
-
-      <div class="cta-group">
-        <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="cta-button-b">Unlock Faster Response System</a>
-      </div>
-    </div>
-
-    <!-- VERSION C -->
-    <div id="version-c" class="version-content">
-      <p class="eyebrow" data-i18n="eyebrow-c">Operational Revenue Impact Estimator</p>
-      <h1 class="headline" data-i18n="headline-c">Turn Response Speed Into Revenue Growth</h1>
-      <p class="subheadline" data-i18n="subheadline-c">Small operational delays compound into large revenue losses. Simaroa eliminates quoting friction and accelerates deal velocity.</p>
-
-      <div class="cta-group">
-        <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="cta-button-c">Request Early Access</a>
-      </div>
-    </div>
-  </main>
-
-  <!-- Calculator Section -->
-  <section class="calculator-section">
-    <div class="calculator-container">
+  <!-- 3. CALCULATOR SECTION (PRESERVED LOGIC) -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
       <div class="calculator-header">
-        <h2 data-i18n="calc-title">Calculate Your Lost Revenue</h2>
-        <p data-i18n="calc-subtitle">Enter your numbers below — no sign-up required</p>
+        <h2>Calculate Your Lost Revenue in 30 Seconds</h2>
+        <p>Enter your real numbers below. No sign-up required.</p>
       </div>
 
       <div class="calculator">
         <div class="calc-grid">
           <div class="calc-field">
-            <label data-i18n="label-avgjob">Average job value ($)</label>
+            <label>Average job value ($)</label>
             <input type="number" id="avgJobValue" value="500" min="0">
           </div>
           <div class="calc-field">
-            <label data-i18n="label-leads">Leads per month</label>
+            <label>Leads per month</label>
             <input type="number" id="leadsPerMonth" value="20" min="0">
           </div>
           <div class="calc-field">
-            <label data-i18n="label-response">Response time (minutes)</label>
+            <label>Average response time (minutes)</label>
             <input type="number" id="responseTime" value="45" min="0">
           </div>
           <div class="calc-field">
-            <label data-i18n="label-close">Close rate (%)</label>
+            <label>Your close rate (%)</label>
             <input type="number" id="closeRate" value="15" min="0" max="100">
           </div>
         </div>
 
-        <button class="calc-button" onclick="calculateLoss()" data-i18n="btn-calculate">Calculate My Loss</button>
+        <button class="calc-button" onclick="calculateLoss()">Calculate My Revenue Leak</button>
 
         <div class="calc-result" id="result">
           <div class="amount-loss" id="amount-loss"></div>
           <div class="label" id="label-loss"></div>
-          <div class="amount-recovery" id="amount-recovery" style="margin-top: 1rem; display: none;"></div>
-          <div class="label" id="label-recovery" style="display: none;"></div>
+          <div class="amount-recovery" id="amount-recovery"></div>
+          <div class="label" id="label-recovery"></div>
         </div>
 
         <div class="calc-cta" id="calc-cta" style="display: none;">
-          <a href="https://app.simaroa.com/signup" class="btn-primary" data-i18n="btn-recover">Recover This Revenue Now</a>
+          <a href="https://app.simaroa.com/signup" class="btn-primary">Recover This Revenue — Start Free Trial</a>
+          <p class="calc-note">No credit card required. See impact within days.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 4. SOLUTION SECTION -->
+  <section class="solution-section">
+    <div class="container">
+      <h2 class="section-title">Here's How Simaroa Helps You Win Faster</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3>Instant Lead Visibility</h3>
+          <p>See every incoming opportunity the moment it arrives.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📩</div>
+          <h3>Faster Quote Workflows</h3>
+          <p>Reduce internal delays and respond in minutes — not hours.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📊</div>
+          <h3>Revenue Performance Tracking</h3>
+          <p>Track response speed and revenue impact in real time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. MECHANISM SECTION -->
+  <section class="mechanism-section">
+    <div class="container">
+      <h2 class="section-title">This Isn't About Software. It's About Speed.</h2>
+      <div class="mechanism-content">
+        <p>Simaroa is built around one principle:</p>
+        <div class="mechanism-quote">The fastest serious responder wins.</div>
+        <p>Instead of adding complexity, Simaroa removes friction.</p>
+        <p>No heavy CRM.<br>
+        No complicated setup.<br>
+        No learning curve.</p>
+        <p>Just operational speed that increases close rates and protects your revenue.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Common Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Do I need to replace my current tools?</button>
+          <div class="faq-answer">
+            <p>No. Simaroa works alongside your existing systems.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Is setup complicated?</button>
+          <div class="faq-answer">
+            <p>No. Most businesses are up and running in less than an hour.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Is this only for large companies?</button>
+          <div class="faq-answer">
+            <p>No. It's built for small and mid-sized service businesses.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Why 14 days?</button>
+          <div class="faq-answer">
+            <p>Because response improvements are visible within days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FINAL CTA SECTION -->
+  <section class="final-cta-section">
+    <div class="container">
+      <h2>Move First. Win More.</h2>
+      <p>Every minute you delay is revenue someone else collects.</p>
+      <a href="https://app.simaroa.com/signup" class="btn-primary">Start My 14-Day Access</a>
+      <p class="reassurance">No long-term contracts. Cancel anytime.</p>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-left" data-i18n="footer-tagline">© 2026 Simaroa · Move first. Win more.</div>
-      <div class="footer-right">
-        <a href="/" data-i18n="nav-home">Home</a>
-        <a href="/pricing.html" data-i18n="nav-pricing">Pricing</a>
-        <a href="/terms.html" data-i18n="nav-terms">Terms</a>
-        <a href="/privacy.html" data-i18n="nav-privacy">Privacy</a>
-        <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
-        <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h4>Simaroa</h4>
+          <p>Move first. Win more.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/refund-policy.html">Refunds</a>
+          <a href="mailto:support@simaroa.com">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>support@simaroa.com · © 2026 Simaroa</p>
       </div>
     </div>
   </footer>
 
-  <script src="lang.js"></script>
   <script>
     // Theme Toggle
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-
       updateThemeIcons(newTheme);
     }
 
     function updateThemeIcons(theme) {
       const sunIcon = document.getElementById('sun-icon');
       const moonIcon = document.getElementById('moon-icon');
-
       if (theme === 'dark') {
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
@@ -554,14 +805,30 @@
       }
     }
 
-    // Load saved theme or default to light (new brand default)
+    // Load saved theme or default to light
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
       updateThemeIcons(savedTheme);
     })();
 
-    // Calculator
+    // FAQ Toggle
+    function toggleFaq(button) {
+      const faqItem = button.parentElement;
+      const isActive = faqItem.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Open clicked if wasn't active
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+
+    // ========== CALCULATOR LOGIC - PRESERVED EXACTLY ==========
     const INDUSTRY_RESPONSE_TARGET = 5;
     const INDUSTRY_CLOSE_RATE = 0.35;
 
@@ -590,7 +857,7 @@
 
       const monthlyLost = Math.round(lostRevenue);
       const yearlyLost = monthlyLost * 12;
-      const recoveryPotential = Math.round(monthlyLost * 0.7); // 70% recovery potential
+      const recoveryPotential = Math.round(monthlyLost * 0.7);
 
       const resultDiv = document.getElementById('result');
       const amountLossDiv = document.getElementById('amount-loss');
@@ -608,7 +875,6 @@
       } else {
         amountLossDiv.textContent = `$${monthlyLost.toLocaleString()}/month`;
         labelLossDiv.textContent = `Lost revenue = $${yearlyLost.toLocaleString()}/year`;
-
         amountRecoveryDiv.textContent = `Recover $${recoveryPotential.toLocaleString()}/month`;
         labelRecoveryDiv.textContent = `With Simaroa's 5-minute response`;
         amountRecoveryDiv.style.display = 'block';
@@ -618,23 +884,6 @@
 
       resultDiv.classList.add("show");
     }
-
-    // A/B Testing
-    (function() {
-      const stored = sessionStorage.getItem("simaroa_ab_version");
-      let version;
-
-      if (stored) {
-        version = stored;
-      } else {
-        const versions = ["A", "B", "C"];
-        version = versions[Math.floor(Math.random() * versions.length)];
-        sessionStorage.setItem("simaroa_ab_version", version);
-      }
-
-      document.querySelectorAll(".version-content").forEach(el => el.classList.remove("active"));
-      document.getElementById("version-" + version.toLowerCase()).classList.add("active");
-    })();
   </script>
 
 </body>
