@@ -103,6 +103,46 @@
       box-shadow: 0 6px 8px -1px rgba(34, 197, 94, 0.3);
     }
 
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      margin-right: 1rem;
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg-secondary);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--text);
+    }
+
+    .lang-toggle {
+      padding: 0.5rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-muted);
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--text-muted);
+      color: var(--text);
+    }
+
     main {
       padding: 10rem 2rem 4rem;
       max-width: 700px;
@@ -189,7 +229,25 @@
       <a href="/refund-policy.html" data-i18n="nav-refunds">Refunds</a>
       <a href="mailto:support@simaroa.com" data-i18n="nav-support">Support</a>
     </div>
-    <a href="https://app.simaroa.com/signup" class="nav-cta">Start Free Trial</a>
+    <div style="display: flex; align-items: center;">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" style="display: none;">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="lang-toggle" onclick="toggleLang()" data-i18n="lang-btn">ES</button>
+      <a href="https://app.simaroa.com/signup" class="nav-cta" data-i18n="nav-cta">Start Free Trial</a>
     </div>
   </nav>
 
@@ -334,6 +392,222 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // ========== TRANSLATIONS ==========
+    const translations = {
+      en: {
+        'lang-btn': 'ES',
+        'nav-cta': 'Start Free Trial',
+        'terms-title': 'Terms of Service',
+        'terms-updated': 'Last Updated: February 2026',
+        'terms-intro': 'Welcome to Simaroa. These Terms of Service ("Terms") govern your access to and use of the Simaroa platform ("Service").',
+        'terms-agreement': 'By accessing or using Simaroa, you agree to these Terms.',
+        'terms-1-title': '1. Description of Service',
+        'terms-1-intro': 'Simaroa is a subscription-based software platform designed for service businesses. It provides tools for:',
+        'terms-1-item1': 'Lead management',
+        'terms-1-item2': 'Quote generation and tracking',
+        'terms-1-item3': 'Customer workflow management',
+        'terms-1-item4': 'Performance analytics and reporting',
+        'terms-1-delivery': 'The Service is delivered online via a secure web-based dashboard.',
+        'terms-2-title': '2. Eligibility',
+        'terms-2-intro': 'You must:',
+        'terms-2-item1': 'Be at least 18 years old',
+        'terms-2-item2': 'Use the Service for lawful business purposes',
+        'terms-2-item3': 'Provide accurate registration information',
+        'terms-3-title': '3. Accounts',
+        'terms-3-intro': 'You are responsible for:',
+        'terms-3-item1': 'Maintaining the confidentiality of your login credentials',
+        'terms-3-item2': 'All activity under your account',
+        'terms-3-item3': 'Ensuring your use complies with applicable laws',
+        'terms-3-reserve': 'We reserve the right to suspend accounts that violate these Terms.',
+        'terms-4-title': '4. Acceptable Use',
+        'terms-4-intro': 'You agree not to:',
+        'terms-4-item1': 'Use the Service for unlawful or fraudulent activity',
+        'terms-4-item2': 'Violate applicable email or marketing laws (including CAN-SPAM, GDPR where applicable)',
+        'terms-4-item3': 'Attempt to reverse engineer, disrupt, or interfere with the Service',
+        'terms-4-item4': 'Upload malicious code',
+        'terms-5-title': '5. Subscriptions & Billing',
+        'terms-5-intro': 'Simaroa operates on a subscription basis.',
+        'terms-5-item1': 'A 14-day free trial may be offered.',
+        'terms-5-item2': 'After the trial, paid plans are billed monthly via Paddle.com.',
+        'terms-5-item3': 'By subscribing, you authorize recurring billing until cancellation.',
+        'terms-5-item4': 'You may cancel at any time via your account dashboard.',
+        'terms-5-item5': 'Access continues until the end of your billing period.',
+        'terms-5-refund': 'For refund terms, see our Refund Policy.',
+        'terms-6-title': '6. Data Ownership',
+        'terms-6-intro': 'You retain ownership of your business data.',
+        'terms-6-usage': 'Simaroa may use anonymized, aggregated data for:',
+        'terms-6-item1': 'System improvements',
+        'terms-6-item2': 'Performance benchmarking',
+        'terms-6-item3': 'Analytics',
+        'terms-6-sell': 'We do not sell personal data.',
+        'terms-7-title': '7. Third-Party Services',
+        'terms-7-intro': 'We use trusted service providers including:',
+        'terms-7-item1': 'Paddle (payment processing)',
+        'terms-7-item2': 'Amazon Web Services (hosting infrastructure)',
+        'terms-7-item3': 'Amazon SES (system notifications and transactional email)',
+        'terms-7-terms': 'Your use of the Service may also be subject to those providers' terms.',
+        'terms-8-title': '8. Termination',
+        'terms-8-intro': 'We may suspend or terminate accounts for:',
+        'terms-8-item1': 'Violation of these Terms',
+        'terms-8-item2': 'Non-payment',
+        'terms-8-item3': 'Fraudulent or abusive behavior',
+        'terms-8-result': 'Upon termination, access to the platform may be restricted.',
+        'terms-9-title': '9. Disclaimer',
+        'terms-9-content': 'The Service is provided "as is" and "as available."',
+        'terms-9-no-guarantee': 'We do not guarantee specific revenue results or business outcomes.',
+        'terms-10-title': '10. Limitation of Liability',
+        'terms-10-content': 'To the maximum extent permitted by law, Simaroa shall not be liable for indirect, incidental, or consequential damages arising from use of the Service.',
+        'terms-11-title': '11. Governing Law',
+        'terms-11-content': 'These Terms are governed by applicable international commercial law.',
+        'terms-12-title': '12. Contact',
+        'terms-12-intro': 'For questions regarding these Terms:',
+        'nav-home': 'Home',
+        'nav-pricing': 'Pricing',
+        'nav-terms': 'Terms',
+        'nav-privacy': 'Privacy',
+        'nav-refunds': 'Refunds',
+        'nav-support': 'Support',
+        'footer-tagline': '© 2026 Simaroa · Move first. Win more.'
+      },
+      es: {
+        'lang-btn': 'EN',
+        'nav-cta': 'Prueba Gratis',
+        'terms-title': 'Términos de Servicio',
+        'terms-updated': 'Última actualización: Febrero 2026',
+        'terms-intro': 'Bienvenido a Simaroa. Estos Términos de Servicio ("Términos") rigen su acceso y uso de la plataforma Simaroa ("Servicio").',
+        'terms-agreement': 'Al acceder o usar Simaroa, acepta estos Términos.',
+        'terms-1-title': '1. Descripción del Servicio',
+        'terms-1-intro': 'Simaroa es una plataforma de software basada en suscripción diseñada para empresas de servicios. Proporciona herramientas para:',
+        'terms-1-item1': 'Gestión de prospectos',
+        'terms-1-item2': 'Generación y seguimiento de cotizaciones',
+        'terms-1-item3': 'Gestión de flujos de trabajo de clientes',
+        'terms-1-item4': 'Análisis de rendimiento e informes',
+        'terms-1-delivery': 'El Servicio se entrega en línea a través de un tablero basado en web seguro.',
+        'terms-2-title': '2. Elegibilidad',
+        'terms-2-intro': 'Debe:',
+        'terms-2-item1': 'Tener al menos 18 años',
+        'terms-2-item2': 'Usar el Servicio para fines comerciales lícitos',
+        'terms-2-item3': 'Proporcionar información de registro precisa',
+        'terms-3-title': '3. Cuentas',
+        'terms-3-intro': 'Usted es responsable de:',
+        'terms-3-item1': 'Mantener la confidencialidad de sus credenciales de inicio de sesión',
+        'terms-3-item2': 'Toda la actividad bajo su cuenta',
+        'terms-3-item3': 'Asegurar que su uso cumpla con las leyes aplicables',
+        'terms-3-reserve': 'Nos reservamos el derecho de suspender cuentas que violen estos Términos.',
+        'terms-4-title': '4. Uso Aceptable',
+        'terms-4-intro': 'Usted acepta no:',
+        'terms-4-item1': 'Usar el Servicio para actividades ilegales o fraudulentas',
+        'terms-4-item2': 'Violar las leyes aplicables de correo o marketing (incluyendo CAN-SPAM, GDPR donde corresponda)',
+        'terms-4-item3': 'Intentar realizar ingeniería inversa, interrumpir o interferir con el Servicio',
+        'terms-4-item4': 'Cargar código malicioso',
+        'terms-5-title': '5. Suscripciones y Facturación',
+        'terms-5-intro': 'Simaroa opera sobre una base de suscripción.',
+        'terms-5-item1': 'Se puede ofrecer una prueba gratuita de 14 días.',
+        'terms-5-item2': 'Después de la prueba, los planes de pago se facturan mensualmente a través de Paddle.com.',
+        'terms-5-item3': 'Al suscribirse, autoriza la facturación recurrente hasta la cancelación.',
+        'terms-5-item4': 'Puede cancelar en cualquier momento a través de su panel de cuenta.',
+        'terms-5-item5': 'El acceso continúa hasta el final de su período de facturación.',
+        'terms-5-refund': 'Para los términos de reembolso, consulte nuestra Política de Reembolso.',
+        'terms-6-title': '6. Propiedad de Datos',
+        'terms-6-intro': 'Usted conserva la propiedad de sus datos comerciales.',
+        'terms-6-usage': 'Simaroa puede usar datos anonimizados y agregados para:',
+        'terms-6-item1': 'Mejoras del sistema',
+        'terms-6-item2': 'Comparativas de rendimiento',
+        'terms-6-item3': 'Análisis',
+        'terms-6-sell': 'No vendemos datos personales.',
+        'terms-7-title': '7. Servicios de Terceros',
+        'terms-7-intro': 'Utilizamos proveedores de servicios confiables que incluyen:',
+        'terms-7-item1': 'Paddle (procesamiento de pagos)',
+        'terms-7-item2': 'Amazon Web Services (infraestructura de hosting)',
+        'terms-7-item3': 'Amazon SES (notificaciones del sistema y correo electrónico transaccional)',
+        'terms-7-terms': 'El uso del Servicio también puede estar sujeto a los términos de esos proveedores.',
+        'terms-8-title': '8. Terminación',
+        'terms-8-intro': 'Podemos suspender o terminar cuentas por:',
+        'terms-8-item1': 'Violación de estos Términos',
+        'terms-8-item2': 'Falta de pago',
+        'terms-8-item3': 'Comportamiento fraudulento o abusivo',
+        'terms-8-result': 'Tras la terminación, el acceso a la plataforma puede restringirse.',
+        'terms-9-title': '9. Descargo de Responsabilidad',
+        'terms-9-content': 'El Servicio se proporciona "tal cual" y "según disponibilidad".',
+        'terms-9-no-guarantee': 'No garantizamos resultados de ingresos o resultados comerciales específicos.',
+        'terms-10-title': '10. Limitación de Responsabilidad',
+        'terms-10-content': 'En la máxima medida permitida por la ley, Simaroa no será responsable por daños indirectos, incidentales o consecuentes que surjan del uso del Servicio.',
+        'terms-11-title': '11. Ley Aplicable',
+        'terms-11-content': 'Estos Términos se rigen por la ley comercial internacional aplicable.',
+        'terms-12-title': '12. Contacto',
+        'terms-12-intro': 'Para preguntas sobre estos Términos:',
+        'nav-home': 'Inicio',
+        'nav-pricing': 'Precios',
+        'nav-terms': 'Términos',
+        'nav-privacy': 'Privacidad',
+        'nav-refunds': 'Reembolsos',
+        'nav-support': 'Soporte',
+        'footer-tagline': '© 2026 Simaroa · Actúa primero. Gana más.'
+      }
+    };
+
+    // Language Toggle
+    function setLanguage(lang) {
+      const t = translations[lang];
+      const elements = document.querySelectorAll('[data-i18n]');
+
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          el.textContent = t[key];
+        }
+      });
+
+      const langBtn = document.querySelector('.lang-toggle');
+      if (langBtn) {
+        langBtn.textContent = t['lang-btn'];
+      }
+
+      localStorage.setItem('simaroa_lang', lang);
+    }
+
+    function toggleLang() {
+      const current = localStorage.getItem('simaroa_lang') || 'en';
+      const newLang = current === 'en' ? 'es' : 'en';
+      setLanguage(newLang);
+    }
+
+    // Initialize language
+    (function() {
+      const savedLang = localStorage.getItem('simaroa_lang') || 'en';
+      setLanguage(savedLang);
+    })();
+
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const sunIcon = document.querySelector('.sun-icon');
+      const moonIcon = document.querySelector('.moon-icon');
+      if (theme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    }
+
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    })();
+  </script>
 
 </body>
 </html>
