@@ -12,7 +12,7 @@ const translations = {
     'footer-tagline': '© 2026 Simaroa · Move first. Win more.',
     'eyebrow-a': 'Calculate Your Lost Revenue in 30 Seconds',
     'headline-a': 'How Much Revenue Are You Losing Because You Respond Too Slowly?',
-    'subheadline-a': 'Most service businesses don\\'t lose jobs because they\\'re bad. They lose because they\\'re late. Simaroa helps you respond faster, close more jobs, and recover the revenue you\\'re silently leaving on the table.',
+    'subheadline-a': "Most service businesses don't lose jobs because they're bad. They lose because they're late. Simaroa helps you respond faster, close more jobs, and recover the revenue you're silently leaving on the table.",
     'calc-title': 'Calculate Your Lost Revenue',
     'calc-subtitle': 'Enter your numbers below — no sign-up required',
     'label-avgjob': 'Average job value ($)',
