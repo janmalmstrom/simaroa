@@ -836,6 +836,12 @@
         'calc-button': 'Calculate My Revenue Leak',
         'calc-cta': 'Recover This Revenue — Start Free Trial',
         'calc-note': 'No credit card required. See impact within days.',
+        'calc-loss-month': '/month',
+        'calc-year': '/year',
+        'calc-loss-year': 'Lost revenue = ',
+        'calc-recover-month': 'Recover $',
+        'calc-response-note': "With Simaroa's 5-minute response",
+        'calc-peak': "You're performing at peak!",
         'solution-title': "Here's How Simaroa Helps You Win Faster",
         'benefit1-title': 'Instant Lead Visibility',
         'benefit1-desc': 'See every incoming opportunity the moment it arrives.',
@@ -894,6 +900,12 @@
         'calc-button': 'Calcular Mi Fuga de Ingresos',
         'calc-cta': 'Recupera Este Ingreso — Prueba Gratis',
         'calc-note': 'No se requiere tarjeta de crédito. Ve el impacto en días.',
+        'calc-loss-month': '/mes',
+        'calc-year': '/año',
+        'calc-loss-year': 'Ingresos perdidos = ',
+        'calc-recover-month': 'Recupera $',
+        'calc-response-note': "Con la respuesta de 5 minutos de Simaroa",
+        'calc-peak': '¡Estás funcionando al máximo!',
         'solution-title': 'Así Es Como Simaroa Te Ayuda a Ganar Más Rápido',
         'benefit1-title': 'Visibilidad Instantánea de Prospectos',
         'benefit1-desc': 'Ve cada oportunidad entrante en el momento en que llega.',
@@ -1033,6 +1045,10 @@
       const yearlyLost = monthlyLost * 12;
       const recoveryPotential = Math.round(monthlyLost * 0.7);
 
+      // Get current language translations
+      const currentLang = localStorage.getItem('simaroa_lang') || 'en';
+      const t = translations[currentLang];
+
       const resultDiv = document.getElementById('result');
       const amountLossDiv = document.getElementById('amount-loss');
       const labelLossDiv = document.getElementById('label-loss');
@@ -1041,16 +1057,16 @@
       const calcCta = document.getElementById('calc-cta');
 
       if (lostRevenue <= 0) {
-        amountLossDiv.textContent = "You're performing at peak!";
+        amountLossDiv.textContent = t['calc-peak'];
         labelLossDiv.textContent = "";
         amountRecoveryDiv.style.display = 'none';
         labelRecoveryDiv.style.display = 'none';
         calcCta.style.display = 'none';
       } else {
-        amountLossDiv.textContent = `$${monthlyLost.toLocaleString()}/month`;
-        labelLossDiv.textContent = `Lost revenue = $${yearlyLost.toLocaleString()}/year`;
-        amountRecoveryDiv.textContent = `Recover $${recoveryPotential.toLocaleString()}/month`;
-        labelRecoveryDiv.textContent = `With Simaroa's 5-minute response`;
+        amountLossDiv.textContent = `$${monthlyLost.toLocaleString()}${t['calc-loss-month']}`;
+        labelLossDiv.textContent = `${t['calc-loss_year']}$${yearlyLost.toLocaleString()}${t['calc-year']}`;
+        amountRecoveryDiv.textContent = `${t['calc-recover-month']}${recoveryPotential.toLocaleString()}${t['calc-loss-month']}`;
+        labelRecoveryDiv.textContent = t['calc-response-note'];
         amountRecoveryDiv.style.display = 'block';
         labelRecoveryDiv.style.display = 'block';
         calcCta.style.display = 'block';
