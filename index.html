@@ -594,6 +594,10 @@
 
     /* Hidden elements for translation */
     .lang-only-es { display: none; }
+
+    /* A/B Testing */
+    .version-content { display: none; }
+    .version-content.active { display: block; }
   </style>
 </head>
 <body>
@@ -620,6 +624,8 @@
     <a href="https://app.simaroa.com/signup" class="nav-cta" data-i18n="nav-cta">Start Free Trial</a>
   </nav>
 
+  <!-- VERSION A - 8 Section Design -->
+  <div id="version-a" class="version-content">
   <!-- 1. HERO SECTION -->
   <section class="hero">
     <div class="container">
@@ -780,6 +786,140 @@
     </div>
   </section>
 
+  </div>
+  <!-- END VERSION A -->
+
+  <!-- VERSION B - Direct Response Copy -->
+  <div id="version-b" class="version-content">
+    <!-- B. HERO SECTION -->
+    <section class="hero" style="padding: 140px 0 80px; text-align: center;">
+      <div class="container">
+        <p class="hero-eyebrow" style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #F59E0B; margin-bottom: 1.5rem;" data-i18n="b-eyebrow">SIMAROA — VERSION B</p>
+        <h1 style="font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 900; line-height: 1.05; color: var(--text); margin-bottom: 2rem; letter-spacing: -0.03em;" data-i18n="b-headline">You're Not Losing Jobs Because You're Bad.<br>You're Losing Them Because You're <span style="color: #F59E0B;">Slow</span>.</h1>
+        <p style="font-size: 1.35rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.7;" data-i18n="b-sub">
+          Every minute you wait to respond to a new lead…<br><br>
+          <strong>Your competitor gets closer to stealing it.</strong><br><br>
+          Most service businesses don't realize this.<br>
+          They think they're "busy."<br><br>
+          But busy doesn't win.<br><br>
+          <span style="color: #F59E0B; font-weight: 700;">Fast wins.</span><br><br>
+          Simaroa helps you respond instantly, follow up automatically, and close more jobs — without hiring staff or learning complicated software.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
+          <a href="https://app.simaroa.com/signup" class="btn-primary" style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white; padding: 1.1rem 2.5rem; border-radius: 8px; font-weight: 700; font-size: 1.0625rem; box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.3);" data-i18n="b-cta">Start Free 14-Day Access →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. PAIN SECTION -->
+    <section style="background: #FEF3C7; color: #0F172A; padding: 80px 0;">
+      <div class="container">
+        <h2 style="font-size: 2.75rem; font-weight: 900; text-align: center; margin-bottom: 2.5rem; letter-spacing: -0.02em;" data-i18n="b-pain-title">The Brutal Truth</h2>
+        <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
+          <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1rem;" data-i18n="b-pain-intro">When a lead comes in:</p>
+          <p style="color: #22C55E; font-weight: 700;" data-i18n="b-pain-1">• If you reply in 5 minutes → you're a professional</p>
+          <p style="color: #F59E0B; font-weight: 700;" data-i18n="b-pain-2">• If you reply in 30 minutes → you're an option</p>
+          <p style="color: #DC2626; font-weight: 700;" data-i18n="b-pain-3">• If you reply tomorrow → you're forgotten</p>
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #E5E7EB; font-size: 1.15rem; font-weight: 600;" data-i18n="b-pain-conclusion">
+            That delay is costing you thousands every month.<br><br>Not because your service is bad.<br>Not because your price is wrong.<br><br><strong>Because someone else moved faster.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. CALCULATOR SECTION -->
+    <section class="calculator-section" id="calculator" style="background: var(--bg); padding: 80px 0;">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <h2 style="font-size: 2.75rem; font-weight: 900; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em;" data-i18n="b-calc-title">Calculate How Much Slow Follow-Up Is Costing You</h2>
+          <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 0.5rem;" data-i18n="b-calc-subtitle">No email required.<br>No tricks.<br>Just numbers.</p>
+          <p style="font-size: 0.95rem; color: var(--text-muted);" data-i18n="b-calc-intro">Enter your real numbers:</p>
+        </div>
+
+        <div class="calculator" style="max-width: 550px; margin: 0 auto; background: var(--calc-bg); border: 2px solid var(--calc-border); border-radius: 20px; padding: 2.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);">
+          <div class="calc-grid">
+            <div class="calc-field">
+              <label data-i18n="calc-label-job">Average job value ($)</label>
+              <input type="number" id="avgJobValue" value="500" min="0">
+            </div>
+            <div class="calc-field">
+              <label data-i18n="calc-label-leads">Leads per month</label>
+              <input type="number" id="leadsPerMonth" value="20" min="0">
+            </div>
+            <div class="calc-field">
+              <label data-i18n="calc-label-response">Your average response time (minutes)</label>
+              <input type="number" id="responseTime" value="45" min="0">
+            </div>
+            <div class="calc-field">
+              <label data-i18n="calc-label-close">Your close rate (%)</label>
+              <input type="number" id="closeRate" value="15" min="0" max="100">
+            </div>
+          </div>
+
+          <button class="calc-button" onclick="calculateLoss()" style="width: 100%; background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 1.2rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.3); text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="b-calc-button">Show Me What I'm Losing</button>
+
+          <div class="calc-result" id="result">
+            <div id="result-message" style="background: #FEF3C7; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 600;"></div>
+            <div class="amount-loss" id="amount-loss" style="font-size: 3rem; font-weight: 900; color: #DC2626; line-height: 1;"></div>
+            <div class="label-loss" id="label-loss" style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;"></div>
+            <div class="amount-recovery" id="amount-recovery" style="font-size: 2.5rem; font-weight: 900; color: #22C55E; line-height: 1;"></div>
+            <div class="label-recovery" id="label-recovery" style="font-size: 1rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 2rem;"></div>
+            <p style="margin-bottom: 1.5rem; font-weight: 600; font-size: 1.05rem;" data-i18n="b-calc-insight">This has nothing to do with skill.<br>It has everything to do with speed.</p>
+            <a href="https://app.simaroa.com/signup" style="display: block; width: 100%; background: linear-gradient(135deg, #22C55E, #16A34A); color: white; padding: 1.2rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; text-align: center; box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.3);" data-i18n="b-calc-cta">Start Fixing This Now — Free Trial</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. SOLUTION SECTION -->
+    <section style="background: var(--bg-secondary); padding: 80px 0;">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 1rem; letter-spacing: -0.02em;" data-i18n="b-solution-title">What Simaroa Actually Does</h2>
+        <p style="text-align: center; font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem;" data-i18n="b-solution-intro">No complicated CRM.<br>No training sessions.<br>No dashboards you'll never use.</p>
+        <div style="max-width: 700px; margin: 0 auto; background: var(--bg); border-radius: 16px; padding: 2.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
+          <p style="text-align: left; margin-bottom: 1.5rem; font-weight: 700; font-size: 1.2rem;" data-i18n="b-solution-prefix">Simaroa:</p>
+          <ul style="list-style: none; font-size: 1.2rem; line-height: 2;">
+            <li style="display: flex; align-items: center; gap: 1rem;" data-i18n="b-solution-1"><span style="color: #22C55E; font-weight: 900; font-size: 1.3rem;">✔</span> Sends quotes faster</li>
+            <li style="display: flex; align-items: center; gap: 1rem;" data-i18n="b-solution-2"><span style="color: #22C55E; font-weight: 900; font-size: 1.3rem;">✔</span> Triggers follow-ups automatically</li>
+            <li style="display: flex; align-items: center; gap: 1rem;" data-i18n="b-solution-3"><span style="color: #22C55E; font-weight: 900; font-size: 1.3rem;">✔</span> Shows you where money is leaking</li>
+            <li style="display: flex; align-items: center; gap: 1rem;" data-i18n="b-solution-4"><span style="color: #22C55E; font-weight: 900; font-size: 1.3rem;">✔</span> Tracks wins, losses, and response speed</li>
+          </ul>
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 1.1rem; font-weight: 600;" data-i18n="b-solution-footer">
+            You log in.<br>You see what matters.<br>You fix it in one click.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. AUTHORITY SECTION -->
+    <section style="background: var(--navy); color: white; padding: 80px 0;">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 1rem; letter-spacing: -0.02em;" data-i18n="b-authority-title">Built for Real Operators</h2>
+        <p style="text-align: center; font-size: 1.15rem; color: #CBD5E1; max-width: 700px; margin: 0 auto 2rem;" data-i18n="b-authority-intro">Simaroa is not built for "tech founders."<br>It's built for people who:</p>
+        <ul style="max-width: 700px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: #E2E8F0; list-style: none;">
+          <li data-i18n="b-authority-1">• Run crews</li>
+          <li data-i18n="b-authority-2">• Answer calls</li>
+          <li data-i18n="b-authority-3">• Chase invoices</li>
+          <li data-i18n="b-authority-4">• Hate losing jobs to slower competitors</li>
+        </ul>
+        <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 12px; font-size: 1.2rem; font-weight: 700;" data-i18n="b-authority-footer">
+          This is not marketing fluff.<br>It's operational leverage.
+        </div>
+      </div>
+    </section>
+
+    <!-- B. FINAL CTA SECTION -->
+    <section style="background: var(--navy); color: white; text-align: center; padding: 80px 0;">
+      <div class="container">
+        <h2 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1.5rem; letter-spacing: -0.03em;" data-i18n="b-final-title">Move First. Win More.</h2>
+        <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;" data-i18n="b-final-sub">The fastest company wins.<br>Not the cheapest.<br>Not the oldest.<br><br><strong>The fastest.</strong></p>
+        <p style="margin-bottom: 2rem; font-size: 1.2rem;" data-i18n="b-final-intro">Start your 14-day access now.</p>
+        <a href="https://app.simaroa.com/signup" class="btn-primary" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 1.2rem 3rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; display: inline-block;" data-i18n="b-final-cta">Start Free Trial</a>
+      </div>
+    </section>
+  </div>
+  <!-- END VERSION B -->
+
   <!-- 8. FOOTER -->
   <footer>
     <div class="container">
@@ -868,7 +1008,46 @@
         'final-cta-sub': 'Every minute you delay is revenue someone else collects.',
         'final-cta-button': 'Start My 14-Day Access',
         'final-cta-reassurance': 'No long-term contracts. Cancel anytime.',
-        'footer-tagline': 'Move first. Win more.'
+        'footer-tagline': 'Move first. Win more.',
+        // Version B translations
+        'b-eyebrow': 'SIMAROA — VERSION B',
+        'b-headline': "You're Not Losing Jobs Because You're Bad. You're Losing Them Because You're Slow.",
+        'b-sub': "Every minute you wait to respond to a new lead… Your competitor gets closer to stealing it. Most service businesses don't realize this. They think they're 'busy.' But busy doesn't win. Fast wins. Simaroa helps you respond instantly, follow up automatically, and close more jobs — without hiring staff or learning complicated software.",
+        'b-cta': 'Start Free 14-Day Access →',
+        'b-pain-title': 'The Brutal Truth',
+        'b-pain-intro': 'When a lead comes in:',
+        'b-pain-1': '• If you reply in 5 minutes → you\'re a professional',
+        'b-pain-2': '• If you reply in 30 minutes → you\'re an option',
+        'b-pain-3': '• If you reply tomorrow → you\'re forgotten',
+        'b-pain-conclusion': 'That delay is costing you thousands every month. Not because your service is bad. Not because your price is wrong. Because someone else moved faster.',
+        'b-calc-title': 'Calculate How Much Slow Follow-Up Is Costing You',
+        'b-calc-subtitle': 'No email required. No tricks. Just numbers.',
+        'b-calc-intro': 'Enter your real numbers:',
+        'b-calc-small-loss': "Even losing 1 extra job per month costs you $",
+        'b-calc-large-loss': "That's $",
+        'b-calc-per-year': ' per year silently walking to your competitor.',
+        'b-calc-button': 'Show Me What I\'m Losing',
+        'b-calc-insight': 'This has nothing to do with skill. It has everything to do with speed.',
+        'b-calc-cta': 'Start Fixing This Now — Free Trial',
+        'b-solution-title': 'What Simaroa Actually Does',
+        'b-solution-intro': 'No complicated CRM. No training sessions. No dashboards you\'ll never use.',
+        'b-solution-prefix': 'Simaroa:',
+        'b-solution-1': 'Sends quotes faster',
+        'b-solution-2': 'Triggers follow-ups automatically',
+        'b-solution-3': 'Shows you where money is leaking',
+        'b-solution-4': 'Tracks wins, losses, and response speed',
+        'b-solution-footer': 'You log in. You see what matters. You fix it in one click.',
+        'b-authority-title': 'Built for Real Operators',
+        'b-authority-intro': 'Simaroa is not built for "tech founders." It\'s built for people who:',
+        'b-authority-1': '• Run crews',
+        'b-authority-2': '• Answer calls',
+        'b-authority-3': '• Chase invoices',
+        'b-authority-4': '• Hate losing jobs to slower competitors',
+        'b-authority-footer': 'This is not marketing fluff. It\'s operational leverage.',
+        'b-final-title': 'Move First. Win More.',
+        'b-final-sub': 'The fastest company wins. Not the cheapest. Not the oldest. The fastest.',
+        'b-final-intro': 'Start your 14-day access now.',
+        'b-final-cta': 'Start Free Trial'
       },
       es: {
         'nav-home': 'Inicio',
@@ -932,7 +1111,46 @@
         'final-cta-sub': 'Cada minuto que retrasas es ingreso que otro recolecta.',
         'final-cta-button': 'Comenzar Mi Acceso de 14 Días',
         'final-cta-reassurance': 'Sin contratos a largo plazo. Cancela cuando quieras.',
-        'footer-tagline': 'Actúa primero. Gana más.'
+        'footer-tagline': 'Actúa primero. Gana más.',
+        // Version B traducciones
+        'b-eyebrow': 'SIMAROA — VERSIÓN B',
+        'b-headline': 'No Pierdes Trabajos Porque Eres Malo. Pierdes Trabajos Porque Eres Lento.',
+        'b-sub': 'Cada minuto que esperas para responder a un prospecto… Tu competidor se acerca más a robártelo. La mayoría de las empresas de servicios no se dan cuenta. Creen que están "ocupadas". Pero ocupado no gana. Rápido gana. Simaroa te ayuda a responder instantáneamente, hacer seguimiento automáticamente y cerrar más trabajos — sin contratar personal o aprender software complicado.',
+        'b-cta': 'Comenzar Acceso Gratis de 14 Días →',
+        'b-pain-title': 'La Verdad Dura',
+        'b-pain-intro': 'Cuando llega un prospecto:',
+        'b-pain-1': '• Si respondes en 5 minutos → eres un profesional',
+        'b-pain-2': '• Si respondes en 30 minutos → eres una opción',
+        'b-pain-3': '• Si respondes mañana → te olvidan',
+        'b-pain-conclusion': 'Ese retraso te está costando miles cada mes. No porque tu servicio sea malo. No porque tu precio esté mal. Porque otro se movió más rápido.',
+        'b-calc-title': 'Calcula Cuánto Te Está Costando el Seguimiento Lento',
+        'b-calc-subtitle': 'No se requiere correo. Sin trucos. Solo números.',
+        'b-calc-intro': 'Ingresa tus números reales:',
+        'b-calc-small-loss': 'Incluso perder 1 trabajo extra al mes te cuesta $',
+        'b-calc-large-loss': 'Eso son $',
+        'b-calc-per-year': ' por año caminando silenciosamente hacia tu competidor.',
+        'b-calc-button': 'Muéstrame Lo Que Estoy Perdiendo',
+        'b-calc-insight': 'Esto no tiene nada que ver con la habilidad. Tiene todo que ver con la velocidad.',
+        'b-calc-cta': 'Arreglar Esto Ahora — Prueba Gratis',
+        'b-solution-title': 'Lo Que Realmente Hace Simaroa',
+        'b-solution-intro': 'Sin CRM complicado. Sin sesiones de entrenamiento. Sin paneles que nunca usarás.',
+        'b-solution-prefix': 'Simaroa:',
+        'b-solution-1': 'Envía cotizaciones más rápido',
+        'b-solution-2': 'Activa seguimientos automáticamente',
+        'b-solution-3': 'Te muestra dónde se está fugando el dinero',
+        'b-solution-4': 'Rastrea victorias, pérdidas y velocidad de respuesta',
+        'b-solution-footer': 'Inicias sesión. Ves lo importante. Lo arreglas en un clic.',
+        'b-authority-title': 'Construido para Operadores Reales',
+        'b-authority-intro': 'Simaroa no está construido para "fundadores de tecnología". Está construido para personas que:',
+        'b-authority-1': '• Dirigen cuadrillas',
+        'b-authority-2': '• Contestan llamadas',
+        'b-authority-3': '• Persiguen facturas',
+        'b-authority-4': '• Odian perder trabajos ante competidores más lentos',
+        'b-authority-footer': 'Esto no es marketing hueco. Es apalancamiento operacional.',
+        'b-final-title': 'Actúa Primero. Gana Más.',
+        'b-final-sub': 'La empresa más rápida gana. No la más barata. No la más antigua. La más rápida.',
+        'b-final-intro': 'Comienza tu acceso de 14 días ahora.',
+        'b-final-cta': 'Comenzar Prueba Gratis'
       }
     };
 
@@ -962,6 +1180,21 @@
       const newLang = current === 'en' ? 'es' : 'en';
       setLanguage(newLang);
     }
+
+    // ========== A/B TESTING ==========
+    // Randomly show version A or B, persist in sessionStorage
+    (function() {
+      const versions = ['A', 'B'];
+      let version = sessionStorage.getItem('simaroa_ab_version');
+
+      if (!version) {
+        version = versions[Math.floor(Math.random() * versions.length)];
+        sessionStorage.setItem('simaroa_ab_version', version);
+      }
+
+      document.querySelectorAll('.version-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('version-' + version.toLowerCase()).classList.add('active');
+    })();
 
     // Initialize language on page load
     (function() {
@@ -1055,10 +1288,13 @@
       const amountRecoveryDiv = document.getElementById('amount-recovery');
       const labelRecoveryDiv = document.getElementById('label-recovery');
       const calcCta = document.getElementById('calc-cta');
+      const messageDiv = document.getElementById('result-message');
+      const isVersionB = document.getElementById('version-b')?.classList.contains('active');
 
       if (lostRevenue <= 0) {
         amountLossDiv.textContent = t['calc-peak'];
         labelLossDiv.textContent = "";
+        if (messageDiv) messageDiv.textContent = '';
         amountRecoveryDiv.style.display = 'none';
         labelRecoveryDiv.style.display = 'none';
         calcCta.style.display = 'none';
@@ -1070,9 +1306,23 @@
         amountRecoveryDiv.style.display = 'block';
         labelRecoveryDiv.style.display = 'block';
         calcCta.style.display = 'block';
+
+        // Version B specific contextual message
+        if (isVersionB && messageDiv) {
+          if (yearlyLost < 12000) {
+            messageDiv.textContent = t['b-calc-small-loss'] || `Even losing 1 extra job per month costs you $${yearlyLost.toLocaleString()} per year.`;
+          } else {
+            messageDiv.textContent = t['b-calc-large-loss'] || `That's $${yearlyLost.toLocaleString()} per year silently walking to your competitor.`;
+          }
+        }
       }
 
       resultDiv.classList.add("show");
+
+      // Auto-scroll to result (Version B)
+      if (isVersionB) {
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   </script>
 
