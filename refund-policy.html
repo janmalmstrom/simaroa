@@ -243,7 +243,14 @@
     </div>
   </footer>
 
+  <script src="lang.js"></script>
   <script>
+    // Language Toggle
+    function toggleLang() {
+      const currentLang = localStorage.getItem('lang') || 'en';
+      const newLang = currentLang === 'en' ? 'es' : 'en';
+      setLang(newLang);
+    }
     // Theme toggle
     function toggleTheme() {
       const html = document.documentElement;

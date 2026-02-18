@@ -127,6 +127,23 @@
 
     .nav-cta:hover { opacity: 0.9; }
 
+    .lang-toggle {
+      padding: 0.4rem 0.8rem;
+      background: var(--calc-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--muted);
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
     .hero {
       padding: 10rem 2rem 4rem;
       max-width: 900px;
@@ -356,6 +373,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9 9 0 0012.828 0l-4-4zm4-4l4 4m0 0l-4 4m4-4H12" />
       </svg>
     </button>
+    <button class="lang-toggle" onclick="toggleLang()">ES</button>
     <a href="https://app.simaroa.com/signup" class="nav-cta">Start Free Trial</a>
   </nav>
 
@@ -510,7 +528,15 @@
     </div>
   </footer>
 
+  <script src="lang.js"></script>
   <script>
+    // Language Toggle
+    function toggleLang() {
+      const currentLang = localStorage.getItem('lang') || 'en';
+      const newLang = currentLang === 'en' ? 'es' : 'en';
+      setLang(newLang);
+    }
+
     // Theme Toggle
     function toggleTheme() {
       const html = document.documentElement;
