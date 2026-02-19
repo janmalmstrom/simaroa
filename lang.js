@@ -105,7 +105,7 @@ const translations = {
     // Privacy page
     'privacy-title': 'Privacy Policy',
     'privacy-updated': 'Last Updated: February 2026',
-    'privacy-intro': 'Simaroa respects your privacy.',
+    'privacy-intro': 'Simaroa is operated by M&J Trusted Marketing KB ("Company", "we", "us", or "our"). We respect your privacy and are committed to protecting your information.',
     'privacy-section1-title': '1. Data We Collect',
     'privacy-section1-item1': 'Account information (name, email)',
     'privacy-section1-item2': 'Billing information (processed securely by Paddle)',
@@ -134,14 +134,24 @@ const translations = {
     // Refund page
     'refund-title': 'Refund Policy',
     'refund-updated': 'Last Updated: February 2026',
-    'refund-trial': 'Simaroa offers a 14-day free trial.',
-    'refund-nonrefundable': 'After trial expiration, subscription payments are non-refundable.',
-    'refund-error': 'If you believe you were charged in error, contact support within 7 days of billing.',
-    'refund-discretion': 'We may issue refunds at our discretion.',
-    'refund-terms-violation': 'Accounts violating Terms are not eligible for refunds.',
-    'refund-questions': 'Questions?',
-    'refund-contact': 'Contact us at',
-    'refund-email': 'support@simaroa.com'
+    'refund-intro': 'Simaroa subscriptions are processed by Paddle.com as Merchant of Record.',
+    'refund-1-title': '1. Free Trial',
+    'refund-1-item1': 'Simaroa may offer a 14-day free trial.',
+    'refund-1-item2': 'No payment is required during the trial period.',
+    'refund-1-item3': 'You may cancel at any time before the trial ends to avoid charges.',
+    'refund-2-title': '2. Right of Cancellation (Initial Subscription)',
+    'refund-2-body': 'If you are eligible under applicable consumer protection laws, you may request a refund within 14 days of your initial subscription purchase.',
+    'refund-2-item1': "Refund requests must be submitted through Paddle's support system.",
+    'refund-2-item2': 'If approved under applicable law, refunds will be issued using the original payment method.',
+    'refund-3-title': '3. Subscription Renewals',
+    'refund-3-item1': 'Subscriptions renew automatically unless cancelled.',
+    'refund-3-item2': 'Except where required by applicable law, renewal payments are non-refundable once processed.',
+    'refund-3-item3': 'You may cancel at any time before the next billing date to avoid further charges.',
+    'refund-4-title': '4. How to Request a Refund',
+    'refund-4-body': "Refunds are handled by Paddle as Merchant of Record. You may request a refund via Paddle's support portal.",
+    'refund-4-footer': 'This policy does not affect any mandatory rights you may have under applicable consumer law.',
+    'refund-4-contact': 'For questions, contact:',
+    'refund-copyright': '© 2026 Simaroa (operated by M&J Trusted Marketing KB)'
   },
   es: {
     'nav-home': 'Inicio',
@@ -248,7 +258,7 @@ const translations = {
     // Privacy page
     'privacy-title': 'Política de Privacidad',
     'privacy-updated': 'Última actualización: Febrero 2026',
-    'privacy-intro': 'Simaroa respeta tu privacidad.',
+    'privacy-intro': 'Simaroa es operado por M&J Trusted Marketing KB ("Empresa", "nosotros", "nos" o "nuestro"). Respetamos tu privacidad y nos comprometemos a proteger tu información.',
     'privacy-section1-title': '1. Datos que Recopilamos',
     'privacy-section1-item1': 'Información de cuenta (nombre, email)',
     'privacy-section1-item2': 'Información de facturación (procesada de forma segura por Paddle)',
@@ -277,14 +287,24 @@ const translations = {
     // Refund page
     'refund-title': 'Política de Reembolso',
     'refund-updated': 'Última actualización: Febrero 2026',
-    'refund-trial': 'Simaroa ofrece una prueba gratuita de 14 días.',
-    'refund-nonrefundable': 'Después de la expiración de la prueba, los pagos de suscripción no son reembolsables.',
-    'refund-error': 'Si crees que se te cobró por error, contacta al soporte dentro de los 7 días de facturación.',
-    'refund-discretion': 'Podemos emitir reembolsos a nuestra discreción.',
-    'refund-terms-violation': 'Las cuentas que violan los Términos no son elegibles para reembolsos.',
-    'refund-questions': '¿Preguntas?',
-    'refund-contact': 'Contáctanos en',
-    'refund-email': 'support@simaroa.com'
+    'refund-intro': 'Las suscripciones de Simaroa son procesadas por Paddle.com como Comerciante de Registro.',
+    'refund-1-title': '1. Prueba Gratuita',
+    'refund-1-item1': 'Simaroa puede ofrecer una prueba gratuita de 14 días.',
+    'refund-1-item2': 'No se requiere pago durante el período de prueba.',
+    'refund-1-item3': 'Puedes cancelar en cualquier momento antes de que termine la prueba para evitar cargos.',
+    'refund-2-title': '2. Derecho de Cancelación (Suscripción Inicial)',
+    'refund-2-body': 'Si eres elegible según las leyes de protección al consumidor aplicables, puedes solicitar un reembolso dentro de los 14 días posteriores a tu compra de suscripción inicial.',
+    'refund-2-item1': 'Las solicitudes de reembolso deben enviarse a través del sistema de soporte de Paddle.',
+    'refund-2-item2': 'Si se aprueba según la ley aplicable, los reembolsos se emitirán usando el método de pago original.',
+    'refund-3-title': '3. Renovaciones de Suscripción',
+    'refund-3-item1': 'Las suscripciones se renuevan automáticamente salvo cancelación.',
+    'refund-3-item2': 'Salvo donde lo exija la ley aplicable, los pagos de renovación no son reembolsables una vez procesados.',
+    'refund-3-item3': 'Puedes cancelar en cualquier momento antes de la próxima fecha de facturación para evitar cargos adicionales.',
+    'refund-4-title': '4. Cómo Solicitar un Reembolso',
+    'refund-4-body': 'Los reembolsos son gestionados por Paddle como Comerciante de Registro. Puedes solicitar un reembolso a través del portal de soporte de Paddle.',
+    'refund-4-footer': 'Esta política no afecta ningún derecho obligatorio que puedas tener según la ley de consumo aplicable.',
+    'refund-4-contact': 'Para preguntas, contacta:',
+    'refund-copyright': '© 2026 Simaroa (operado por M&J Trusted Marketing KB)'
   }
 };
 
