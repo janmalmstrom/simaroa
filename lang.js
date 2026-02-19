@@ -131,6 +131,7 @@ const translations = {
     'privacy-section7-content': 'Data is retained while your account is active.',
     'privacy-section8-title': '8. Contact',
     'privacy-contact-email': 'support@simaroa.com',
+    'privacy-copyright': '© 2026 Simaroa (operated by M&J Trusted Marketing KB)',
     // Refund page
     'refund-title': 'Refund Policy',
     'refund-updated': 'Last Updated: February 2026',
@@ -284,6 +285,7 @@ const translations = {
     'privacy-section7-content': 'Los datos se retienen mientras tu cuenta esté activa.',
     'privacy-section8-title': '8. Contacto',
     'privacy-contact-email': 'support@simaroa.com',
+    'privacy-copyright': '© 2026 Simaroa (operado por M&J Trusted Marketing KB)',
     // Refund page
     'refund-title': 'Política de Reembolso',
     'refund-updated': 'Última actualización: Febrero 2026',
